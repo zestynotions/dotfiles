@@ -1,27 +1,22 @@
 #!/bin/sh
 
-# Collect and mark section for zsh shortcuts
+# Collect, sort and mark section for zsh shortcuts
 echo '#!/bin/sh \n# --- zsh shortcuts ---' > ~/.config/bin/Shortcuts
 grep 'alias ' ~/.zshrc|sort >> ~/.config/bin/Shortcuts
 
 
 if [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform        
-    # Collect and mark section for OSX shortcuts
+    # Collect, sort and mark section if OSX shortcuts
     echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
     grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
 else
-# Collect and mark section for arch shortcuts
+    # Collect, sort and mark section if arch shortcuts
     echo '\n# --- Arch specific aliases ---' >> ~/.config/bin/Shortcuts
     grep 'alias ' ~/.config/aliases/arch_aliases|sort >> ~/.config/bin/Shortcuts
 fi
 
 
-# Collect and mark section for OSX shortcuts
-# echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
-# grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
-
-# Collect and mark section for Private shortcuts (Add your secret shortcuts like ip and name specific shortcuts that you dont want to share with github etc here)
+# Collect, sort and mark section for Private shortcuts (Add your secret shortcuts like ip and name specific shortcuts that you dont want to share with github etc here)
 echo '\n# --- Private aliases ---' >> ~/.config/bin/Shortcuts
 grep 'alias ' ~/.config/aliases/prv_aliases|sort >> ~/.config/bin/Shortcuts
 

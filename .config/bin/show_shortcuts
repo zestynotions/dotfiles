@@ -1,12 +1,31 @@
 #!/bin/sh
+
+# Collect and mark section for zsh shortcuts
 echo '#!/bin/sh \n# --- zsh shortcuts ---' > ~/.config/bin/Shortcuts
 grep 'alias ' ~/.zshrc|sort >> ~/.config/bin/Shortcuts
-echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
-grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
+
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+    # Collect and mark section for OSX shortcuts
+    echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
+    grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
+else
+# Collect and mark section for arch shortcuts
+    echo '\n# --- Arch specific aliases ---' >> ~/.config/bin/Shortcuts
+    grep 'alias ' ~/.config/aliases/arch_aliases|sort >> ~/.config/bin/Shortcuts
+fi
+
+
+# Collect and mark section for OSX shortcuts
+# echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
+# grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
+
+# Collect and mark section for Private shortcuts (Add your secret shortcuts like ip and name specific shortcuts that you dont want to share with github etc here)
 echo '\n# --- Private aliases ---' >> ~/.config/bin/Shortcuts
 grep 'alias ' ~/.config/aliases/prv_aliases|sort >> ~/.config/bin/Shortcuts
 
-# grep -v '#' ~/.config/skdh/skhdrc >> Shortcuts
+# Display all the shortcuts in Bat with colors
 bat ~/.config/bin/Shortcuts
 
 

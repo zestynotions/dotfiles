@@ -1,0 +1,85 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "koekeishiya/formulae"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Cross-platform make
+brew "cmake"
+# Console Matrix
+brew "cmatrix"
+# POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)
+brew "dash"
+# Run arbitrary commands when files change
+brew "entr"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# Core application library for C
+brew "glib"
+# Terminal based graphical activity monitor inspired by gtop and vtop
+brew "gotop"
+# Improved top (interactive process viewer)
+brew "htop"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Rainbows and unicorns in your console!
+brew "lolcat"
+# Powerful, lightweight programming language
+brew "lua"
+# Just-In-Time Compiler (JIT) for the Lua programming language
+brew "luajit", args: ["HEAD"]
+# Package manager for the Lua programming language
+brew "luarocks"
+# Remote terminal application
+brew "mosh"
+# Parser generator tool and incremental parsing library
+brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim", args: ["HEAD"]
+# Port scanning utility for large networks
+brew "nmap"
+# Tiny, lightning fast, feature-packed file manager
+brew "nnn"
+# Platform built on V8 to build network applications
+brew "node"
+# Simplistic interactive filtering tool
+brew "peco"
+# File browser
+brew "ranger"
+# Readline wrapper: adds readline support to tools that lack it
+brew "rlwrap"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Terminal multiplexer
+brew "tmux"
+# Manage complex tmux sessions easily
+brew "tmuxinator"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Ncurses based file manager with vi like keybindings
+brew "vifm"
+# JavaScript package manager
+brew "yarn"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Tool to list all active shortcuts of the current application
+cask "cheatsheet"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-monoid-nerd-font"

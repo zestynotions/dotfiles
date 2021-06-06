@@ -1,0 +1,12 @@
+#!/bin/sh
+echo '#!/bin/sh \n# --- zsh shortcuts ---' > ~/.config/bin/Shortcuts
+grep 'alias ' ~/.zshrc|sort >> ~/.config/bin/Shortcuts
+echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
+grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
+echo '\n# --- Private aliases ---' >> ~/.config/bin/Shortcuts
+grep 'alias ' ~/.config/aliases/prv_aliases|sort >> ~/.config/bin/Shortcuts
+
+# grep -v '#' ~/.config/skdh/skhdrc >> Shortcuts
+bat ~/.config/bin/Shortcuts
+
+

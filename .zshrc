@@ -21,7 +21,9 @@ zstyle ':vcs_info:*' stagedstr ' +'
 setopt PROMPT_SUBST
 PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯ %f'
 LANG='en_US.UTF-8'
-set -o vi
+
+# if you hit ESC while writing a command you can edit the command with vim commands
+set -o vi   
 
 # ---------------------------------------------------------
 # defaults
@@ -35,7 +37,6 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 
 alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias v='nvim' 				# Another alias for Neovim 
-alias o='open $1'           # Open folder in finder
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias n='nnn ~/'  			# Start the nnn CLI filemanager

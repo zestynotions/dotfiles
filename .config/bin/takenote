@@ -1,0 +1,28 @@
+#!/bin/sh
+# Use /bin/bash -x for debugging. (or "set -x --> set +x" for lines you specifically want to debug.)
+
+# Simple note taking script
+
+# get the date
+date=$(date +"%Y-%m-%d")
+
+# get Topic
+topic="$1"
+
+# filename to write to
+filename="${HOME}/rsync/code/bash/${topic}_notes.txt"
+
+# Ask for user input
+read -p "your note: " note
+
+if [[ $note ]]; then
+echo "$date: $note" >> "$filename"
+clear
+bat "$filename"
+
+else
+    echo "No input, Note was not saved!"
+
+fi
+
+

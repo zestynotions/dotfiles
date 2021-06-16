@@ -48,8 +48,8 @@ alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-fir
 
 # ---------------------------------------------------------
 # GIT specific alias for the bare repo I use to manage my dotfiles in ~/.cfg
-alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles
+alias cfgl='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline' # show git log in one line for the dotfiles
 # ---------------------------------------------------------
 # Edit .configs
 alias ec='cd ~/.config/ ; nvim' # Start Neovim with base in the .config directory makes if faster to find files

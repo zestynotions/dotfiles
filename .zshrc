@@ -19,7 +19,7 @@ zstyle ':vcs_info:*' stagedstr ' +'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯ %f'
+PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯❯ %f'
 LANG='en_US.UTF-8'
 
 # if you hit ESC while writing a command you can edit the command with vim commands

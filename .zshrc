@@ -39,7 +39,8 @@ alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync"
 alias v='nvim' 				# Another alias for Neovim 
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
-alias f='br ~/ ;ll'
+alias f='br ~/ ;ll'         # Search from Home directory
+alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
 alias n='nnn ~/'  			# Start the nnn CLI filemanager
 alias q='exit' 				# Exits the terminal (Quit)
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
@@ -60,12 +61,11 @@ alias ez='nvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
 # Source other files 
 # ===============================================
 source ~/.config/bin/git-prompt.sh          # adding git functionality to the zsh prompt
-source ~/.config/aliases/zns_aliases 		# My private aliases     
 source ~/.config/aliases/prv_aliases 		# Add private aliases in this file to keep seperate from file that might get pushed to www
 source ~/.config/aliases/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
 source ~/.config/nnn/config 				# Exported variables for nnn filemanager
-source ~/.config/bin/func                   # Source the functions a generally use
-source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find files and directories fast
+source ~/.config/bin/func                   # Source the functions I generally use
+source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 
 uname_info_figlet | lolcat                  # show terminal initial info with s splash of color
 

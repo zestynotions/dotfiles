@@ -61,7 +61,7 @@ alias ez='nvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
 # Source other files 
 # ===============================================
 source ~/.config/bin/git-prompt.sh          # adding git functionality to the zsh prompt
-source ~/.config/aliases/prv_aliases 		# Add private aliases in this file to keep seperate from file that might get pushed to www
+source ~/.config/aliases/prv_aliases 		# Create and add your private aliases in this file
 source ~/.config/aliases/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
 source ~/.config/nnn/config 				# Exported variables for nnn filemanager
 source ~/.config/bin/func                   # Source the functions I generally use

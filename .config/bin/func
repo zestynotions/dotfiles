@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 #=======================================================================   
@@ -42,17 +42,9 @@ clear_compile(){
 # Run figlet with larry3d effect
 # =================================
 zns_header(){
+    clear
     echo ""
     figlet -f larry3d -w 160 $1 |lolcat
     echo ""
 }
 
-# =================================
-# Git bare repo commit+push for dotfiles
-# =================================
-cfg_compush(){
-    clear
-    echo ""
-    read -ep "Type Commit Message: " msg;
-    cfg commit -am '$msg' && cfg push ;
-}

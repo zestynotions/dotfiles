@@ -16,9 +16,10 @@ alias o='open $1'           			# Open folder in finder
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias c='clear_compile'                 # use to compile a C program and run it.
 alias mux='tmuxinator'  				# start Tmuxinator
-alias ipr='ifconfig |grep "inet "' 			# Show IP adress of machine
+alias ipr='get_ip'                      # Show IP ip4 adresses of the machine
 alias ek='nvim ~/.config/skhd/skhdrc'   	# Edit the keyboard shortcut deamon
 alias ey='nvim ~/.config/yabai/config'   	# Edit the Yabai WM config
 
-
-
+get_ip(){ 
+    ifconfig|grep "inet "|awk '{print $2}'|figlet -f larry3d 
+}

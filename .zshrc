@@ -20,7 +20,6 @@ zstyle ':vcs_info:*' stagedstr ' +'
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯❯ %f'
-LANG='en_US.UTF-8'
 
 # if you hit ESC while writing a command you can edit the command with vim commands
 set -o vi   
@@ -30,7 +29,8 @@ set -o vi
 export EDITOR='nvim'
 export BROWSER='brave'
 export TERMINAL='alacritty'
-export LANG
+export LC_ALL='en_US.UTF-8'  
+export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 # ---------------------------------------------------------
@@ -43,6 +43,7 @@ alias f='br ~/ ;ll'         # Search from Home directory
 alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
 alias n='nnn ~/'  			# Start the nnn CLI filemanager
 alias q='exit' 				# Exits the terminal (Quit)
+alias ...='cd ../..'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
 alias t='tmux attach' 		# Attaches any existing tmux sessions 
 alias i='uname_info_figlet'	# This calls the greeting message for the terminal on open, hostname, type and time + date.

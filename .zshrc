@@ -45,7 +45,8 @@ alias n='nnn ~/'  			# Start the nnn CLI filemanager
 alias q='exit' 				# Exits the terminal (Quit)
 alias ...='cd ../..'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
-alias t='tmux attach' 		# Attaches any existing tmux sessions 
+alias t='tmux' 	        	# Starts a tmux session
+alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias i='uname_info_figlet'	# This calls the greeting message for the terminal on open, hostname, type and time + date.
 alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 
@@ -69,6 +70,8 @@ source ~/.config/aliases/osx_aliases 		# If like me you are in OSX you might hav
 source ~/.config/nnn/config 				# Exported variables for nnn filemanager
 source ~/.config/bin/func                   # Source the functions I generally use
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
+
+. /usr/local/etc/profile.d/z.sh             # sourcing the Z program for fast user switching
 
 uname_info_figlet | lolcat                  # show terminal initial info with s splash of color
 

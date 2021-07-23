@@ -41,7 +41,6 @@ alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias f='br ~/ ;ll'         # Search from Home directory
 alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
-alias n='nnn ~/'  			# Start the nnn CLI filemanager
 alias q='exit' 				# Exits the terminal (Quit)
 alias ...='cd ../..'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"

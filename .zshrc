@@ -66,7 +66,6 @@ alias ez='nvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
 source ~/.config/bin/git-prompt.sh          # adding git functionality to the zsh prompt
 source ~/.config/aliases/prv_aliases 		# Create and add your private aliases in this file
 source ~/.config/aliases/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
-source ~/.config/nnn/config 				# Exported variables for nnn filemanager
 source ~/.config/bin/func                   # Source the functions I generally use
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 

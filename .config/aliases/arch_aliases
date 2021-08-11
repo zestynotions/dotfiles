@@ -10,11 +10,10 @@
 
 # Aliasses Arch Specific
 #==========================
-alias sysreboot='sudo systemctl reboot' # used for arch with SystemD
+alias rb='sudo systemctl reboot' # used for arch with SystemD
 alias lsserv='sudo systemctl --type=service'
 alias xu='sudo pacman -Syu'
 alias xi='sudo pacman -S $1'
 alias sd='sudo shutdown -h now'
-alias rb='sudo reboot'
 alias s='sway'
 alias es='nvim ~/.config/sway/config'

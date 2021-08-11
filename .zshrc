@@ -68,7 +68,6 @@ source ~/.config/aliases/prv_aliases 		# Create and add your private aliases in 
 source ~/.config/aliases/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
 source ~/.config/bin/func                   # Source the functions I generally use
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
-
 . /usr/local/etc/profile.d/z.sh             # sourcing the Z program for fast user switching
 
 uname_info_figlet | lolcat                  # show terminal initial info with s splash of color

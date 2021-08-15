@@ -70,6 +70,6 @@ source ~/.config/bin/func                   # Source the functions I generally u
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 . /usr/local/etc/profile.d/z.sh             # sourcing the Z program for fast user switching
 
-uname_info_figlet | lolcat                  # show terminal initial info with s splash of color
+uname_info_figlet                   # show terminal initial info with s splash of color
 
 

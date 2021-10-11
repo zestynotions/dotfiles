@@ -45,6 +45,7 @@ alias q='exit' 				# Exits the terminal (Quit)
 alias ...='cd ../..'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
 alias t='tmux' 	        	# Starts a tmux session
+alias pf='pfetch'           # runs pfetch
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias i='uname_info_figlet'	# This calls the greeting message for the terminal on open, hostname, type and time + date.
 alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa

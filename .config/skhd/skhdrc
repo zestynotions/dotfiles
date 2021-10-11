@@ -17,6 +17,7 @@ cmd - return : open -a Alacritty.app
 
 alt - b : open -a Brave\ Browser.app
 alt - n : open -a Notes.app
+alt - e : open -a Finder.app
 alt - r : open -a Reminders.app
 alt - m : open -a Mail.app
 

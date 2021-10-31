@@ -22,22 +22,23 @@ setopt PROMPT_SUBST
 PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯❯ %f'
 
 # if you hit ESC while writing a command you can edit the command with vim commands
-set -o vi   
+# set -o vi   
 
 # ---------------------------------------------------------
 # defaults
-export EDITOR='nvim'
+export EDITOR='lvim'
 export BROWSER='brave'
 export TERMINAL='alacritty'
 export LC_ALL='en_US.UTF-8'  
 export LANG='en_US.UTF-8'
-export PATH=$PATH:/usr/local/bin:~/.config/bin
+export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 # ---------------------------------------------------------
 alias ZZ=''                 # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
-alias v='nvim' 				# Another alias for Neovim 
-alias vim='nvim' 			# Another alias for Neovim
+alias v='lvim' 				# Another alias for Neovim 
+alias vim='lvim' 			# Another alias for Neovim
+# alias nvim='lvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias f='br ~/ ;ll'         # Search from Home directory
 alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
@@ -49,6 +50,7 @@ alias pf='pfetch'           # runs pfetch
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias i='uname_info_figlet'	# This calls the greeting message for the terminal on open, hostname, type and time + date.
 alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 
 # ---------------------------------------------------------
 # GIT specific alias for the bare repo I use to manage my dotfiles in ~/.cfg
@@ -71,6 +73,7 @@ source ~/.config/bin/func                   # Source the functions I generally u
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 . /usr/local/etc/profile.d/z.sh             # sourcing the Z program for fast user switching
 
-uname_info_figlet                   # show terminal initial info with s splash of color
+pfetch
+# uname_info_figlet                   # show terminal initial info with s splash of color
 
 

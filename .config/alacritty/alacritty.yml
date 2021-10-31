@@ -82,3 +82,10 @@ mouse:
   hide_when_typing: true
   hints:
     modifiers: Shift
+
+live_config_reload: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+

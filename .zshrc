@@ -36,6 +36,7 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 # ---------------------------------------------------------
 alias ZZ=''                 # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
+alias cat='bat'             # remap cat to bat
 alias v='lvim' 				# Another alias for Neovim 
 alias vim='lvim' 			# Another alias for Neovim
 # alias nvim='lvim' 			# Another alias for Neovim
@@ -43,7 +44,8 @@ alias a='sh show_shortcuts' # List all aliases
 alias f='br ~/ ;ll'         # Search from Home directory
 alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
 alias q='exit' 				# Exits the terminal (Quit)
-alias ...='cd ../..'        # Go up 2 levels
+alias ...='cd ../.. ;ll'        # Go up 2 levels
+alias ..='cd .. ;ll'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
 alias t='tmux' 	        	# Starts a tmux session
 alias pf='pfetch'           # runs pfetch
@@ -60,8 +62,8 @@ alias cfgc='git_commit'                            # Simplified commit all and p
 
 # ---------------------------------------------------------
 # Edit .configs
-alias ec='cd ~/.config/ ; nvim' # Start Neovim with base in the .config directory makes if faster to find files
-alias ez='nvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
+alias ec='cd ~/.config/ ; lvim' # Start Neovim with base in the .config directory makes if faster to find files
+alias ez='lvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
 
 # ===============================================
 # Source other files 

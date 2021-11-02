@@ -26,7 +26,7 @@ PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ ❯❯ %f'
 
 # ---------------------------------------------------------
 # defaults
-export EDITOR='lvim'
+export EDITOR='nvim'
 export BROWSER='brave'
 export TERMINAL='alacritty'
 export LC_ALL='en_US.UTF-8'  
@@ -37,9 +37,8 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 alias ZZ=''                 # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias cat='bat'             # remap cat to bat
-alias v='lvim' 				# Another alias for Neovim 
-alias vim='lvim' 			# Another alias for Neovim
-# alias nvim='lvim' 			# Another alias for Neovim
+alias v='nvim' 				# Another alias for Neovim 
+alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias f='br ~/ ;ll'         # Search from Home directory
 alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
@@ -62,8 +61,8 @@ alias cfgc='git_commit'                            # Simplified commit all and p
 
 # ---------------------------------------------------------
 # Edit .configs
-alias ec='cd ~/.config/ ; lvim' # Start Neovim with base in the .config directory makes if faster to find files
-alias ez='lvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
+alias ec='cd ~/.config/ ; nvim' # Start Neovim with base in the .config directory makes if faster to find files
+alias ez='nvim ~/.zshrc' 		# Edit zsh config (this file) in Neovim
 
 # ===============================================
 # Source other files 

@@ -56,10 +56,7 @@ nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 
 nmap <leader>k :nohlsearch<CR>
 nmap <leader>Q :bufdo bdelete<cr>
-
-" nmap <leader>b :Buffers<cr>
 nmap <leader>g :Goyo<cr>
-" nmap <leader>l :HopLine<cr>
 
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
@@ -139,7 +136,6 @@ source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/commentary.vim
-" source ~/.config/nvim/plugins/dispatch.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/fugitive.vim
@@ -147,13 +143,15 @@ source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/polyglot.vim
-" source ~/.config/nvim/plugins/projectionist.vim
 source ~/.config/nvim/plugins/quickscope.vim
 source ~/.config/nvim/plugins/rooter.vim
 source ~/.config/nvim/plugins/smooth-scroll.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/which-key.vim
+
 " source ~/.config/nvim/plugins/arduino.vim
+" source ~/.config/nvim/plugins/projectionist.vim
+" source ~/.config/nvim/plugins/dispatch.vim
 
 call plug#end()
 doautocmd User PlugLoaded

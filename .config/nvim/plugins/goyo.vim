@@ -1,3 +1,6 @@
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -30,5 +33,8 @@ function! s:goyo_leave()
   Limelight!
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" autocmd! User GoyoEnter nested call <SID>goyo_enter()
+" autocmd! User GoyoLeave nested call <SID>goyo_leave()

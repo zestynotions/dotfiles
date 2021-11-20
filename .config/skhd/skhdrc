@@ -83,16 +83,15 @@ shift + alt - right : yabai -m window --grid 1:2:1:0:1:1
 # --------------------------------------------------------------------
 # Float 9 X 9 Grid use numpad as ref for where your window will go ;)
 # --------------------------------------------------------------------
-
-alt - 1 : yabai -m window --grid 9:9:0:0:3:3
-alt - 2 : yabai -m window --grid 9:9:3:0:3:3
-alt - 3 : yabai -m window --grid 9:9:6:0:3:3
-alt - 4 : yabai -m window --grid 9:9:0:3:3:3
-alt - 5 : yabai -m window --grid 9:9:3:3:3:3
-alt - 6 : yabai -m window --grid 9:9:6:3:3:3
-alt - 7 : yabai -m window --grid 9:9:0:6:3:3
-alt - 8 : yabai -m window --grid 9:9:3:6:3:3
-alt - 9 : yabai -m window --grid 9:9:6:6:3:3
+# alt - 1 : yabai -m window --grid 9:9:0:0:3:3
+# alt - 2 : yabai -m window --grid 9:9:3:0:3:3
+# alt - 3 : yabai -m window --grid 9:9:6:0:3:3
+# alt - 4 : yabai -m window --grid 9:9:0:3:3:3
+# alt - 5 : yabai -m window --grid 9:9:3:3:3:3
+# alt - 6 : yabai -m window --grid 9:9:6:3:3:3
+# alt - 7 : yabai -m window --grid 9:9:0:6:3:3
+# alt - 8 : yabai -m window --grid 9:9:3:6:3:3
+# alt - 9 : yabai -m window --grid 9:9:6:6:3:3
 
 
 
@@ -100,11 +99,15 @@ alt - 9 : yabai -m window --grid 9:9:6:6:3:3
 # Float 4 X 4 Grid
 # -----------------
 
-alt + ctrl - h : yabai -m window --grid 4:4:0:0:2:2
-alt + ctrl - l : yabai -m window --grid 4:4:2:0:2:2
-alt + ctrl - j : yabai -m window --grid 4:4:0:2:2:2
-alt + ctrl - k : yabai -m window --grid 4:4:2:2:2:2
+# alt + ctrl - h : yabai -m window --grid 4:4:0:0:2:2
+# alt + ctrl - l : yabai -m window --grid 4:4:2:0:2:2
+# alt + ctrl - j : yabai -m window --grid 4:4:0:2:2:2
+# alt + ctrl - k : yabai -m window --grid 4:4:2:2:2:2
 
+ctrl - h : yabai -m window --grid 4:7:0:0:2:4
+ctrl - l : yabai -m window --grid 4:7:4:0:2:4
+ctrl - j : yabai -m window --grid 4:7:0:2:0:4
+ctrl - k : yabai -m window --grid 4:7:4:2:0:4
 
 # send window to monitor and follow focus
 # ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
@@ -163,6 +166,8 @@ alt - e : yabai -m window --toggle split
 #
 #   literal      = 'single letter or built-in keyword'
 #
+#   Launch skhd in observer mode: skhd --observe or skhd -o. Press ctrl+c to quit.
+#   
 #   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
 #
 #   proc_map_lst = * <proc_map>

@@ -6,6 +6,11 @@
 
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
+#
+# https://espanso.org/docs/matches/
+#
+#
+
 matches:
   # Simple text replacement
   - trigger: ":espanso"
@@ -28,6 +33,34 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+
+  # Signatures
+  - trigger: ":br"
+    replace: "Best Regards,\nAlf Nielsen\n"
+
+
+  - trigger: ":ip"
+    replace: "{{output}}"
+    vars:
+    - name: output
+      type: shell
+      params:
+        cmd: "curl 'https://api.ipify.org'"
+        shell: zsh
+
+
+  - trigger: ":quote"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "Every moment is a fresh beginning."
+            - "Everything you can imagine is real."
+            - "Whatever you do, do it well."
+
+
 
 show_notifications: false
 

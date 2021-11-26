@@ -67,6 +67,7 @@ alias cfgc='git_commit'                            # Simplified commit all and p
 
 # ---------------------------------------------------------
 # Edit .configs
+alias ee='espanso edit'                 # Start Neovim with espanso config
 alias ec='cd ~/.config/ ; nvim'         # Start Neovim with base in the .config directory makes if faster to find files
 alias ev='nvim ~/.config/nvim/init.vim' # Edit Neovim config.
 alias ez='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim

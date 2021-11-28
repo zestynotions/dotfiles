@@ -3,6 +3,7 @@ set shell sh
 set icons
 set shellopts '-eu'
 set previewer ~/.config/lf/previewer.sh
+# set previewer ~/.go/bin/pistol
 
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly

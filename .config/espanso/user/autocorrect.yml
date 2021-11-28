@@ -1,6 +1,35 @@
 name: zns-auto-correct 
 parent: default
 matches:
+  # Start Months
+- trigger: january
+  replace: January
+  word: true
+- trigger: february
+  replace: February
+  word: true
+- trigger: april
+  replace: April
+  word: true
+- trigger: june
+  replace: June
+  word: true
+- trigger: july
+  replace: July
+  word: true
+- trigger: august
+  replace: August
+  word: true
+- trigger: september
+  replace: September
+  word: true
+- trigger: november
+  replace: November
+  word: true
+- trigger: december
+  replace: December
+  word: true
+  # End Months
 - trigger: acsent
   replace: accent
   propagate_case: true

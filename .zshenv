@@ -1,0 +1,1 @@
+/Users/ookami/.config/zsh/.zshenv

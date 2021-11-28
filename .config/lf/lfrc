@@ -1,9 +1,10 @@
-set hidden on
-set shell sh
-set icons
+set hidden true
+set shell zsh
+set icons true
 set shellopts '-eu'
+set preview false
+set drawbox true
 set previewer ~/.config/lf/previewer.sh
-# set previewer ~/.go/bin/pistol
 
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly

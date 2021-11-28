@@ -13,16 +13,20 @@
 
 " looks at direcory level .vimrc
 set exrc
-
 set expandtab
+set guicursor=
 set shiftwidth=4
 set tabstop=4
+set nohlsearch
+set noerrorbells
 set hidden
 set signcolumn=yes:2
 set relativenumber
 set number
 set termguicolors
 set undofile
+set noswapfile
+set nobackup
 set spell
 set title
 set ignorecase
@@ -38,6 +42,8 @@ set nojoinspaces
 set splitright
 set clipboard=unnamedplus
 set confirm
+
+highligh Normal guibg=none
 
 " set backup
 " set backupdir=~/.local/share/nvim/backup//
@@ -143,12 +149,11 @@ source ~/.config/nvim/plugins/treesitter.vim
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/commentary.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/fugitive.vim
-source ~/.config/nvim/plugins/markdown-preview.vim
+source ~/.config/nvim/plugins/telekasten.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/polyglot.vim
@@ -158,6 +163,8 @@ source ~/.config/nvim/plugins/smooth-scroll.vim
 source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/which-key.vim
 
+" source ~/.config/nvim/plugins/fzf.vim
+" source ~/.config/nvim/plugins/markdown-preview.vim
 " source ~/.config/nvim/plugins/arduino.vim
 " source ~/.config/nvim/plugins/projectionist.vim
 " source ~/.config/nvim/plugins/dispatch.vim

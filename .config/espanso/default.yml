@@ -42,12 +42,20 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
-
+  # ===============================================
   # Signatures
+
+  - trigger: ":te"
+    replace: "Transform and Engage Team"
+
+  - trigger: ":tl"
+    replace: "http://teams.blabla.com\nhttp://communitypages.com\n"
+  
   - trigger: ":br"
     replace: "Best Regards,\nAlf Nielsen\n"
 
 
+  # ===============================================
   - trigger: ":ip"
     replace: "{{output}}"
     vars:

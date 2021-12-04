@@ -5,14 +5,14 @@
 "   \/____/\/_/\/_/\/___/
 "
 "
-"       Personal vim configuration of zns <zestynotions@gmail.com>
+" Personal vim configuration of zns <zestynotions@gmail.com>
 "
 "--------------------------------------------------------------------------
 " General settings
 "--------------------------------------------------------------------------
 
-" looks at direcory level .vimrc
-set exrc
+
+set exrc " looks at direcory level vimrc
 set expandtab
 set guicursor=
 set shiftwidth=4
@@ -56,10 +56,6 @@ set redrawtime=10000 " Allow more time for loading syntax on large files
 
 let mapleader = "\<space>"
 
-nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
-nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
-
 nmap <leader>k :nohlsearch<CR>
 nmap <leader>Q :bufdo bdelete<cr>
 nmap <leader>g :Goyo<cr>
@@ -72,10 +68,10 @@ nnoremap <leader>T :Telescope find_files<cr>
 
 
 " Quicker switching between windows
-nmap <silent> <C-h> <C-w>h
-nmap <silent> <C-j> <C-w>j
-nmap <silent> <C-k> <C-w>k
-nmap <silent> <C-l> <C-w>l
+" nmap <silent> <C-h> <C-w>h
+" nmap <silent> <C-j> <C-w>j
+" nmap <silent> <C-k> <C-w>k
+" nmap <silent> <C-l> <C-w>l
 
 " Reselect visual selection after indenting
 vnoremap < <gv
@@ -140,43 +136,40 @@ endif
 call plug#begin(data_dir . '/plugins')
 
 "----------------------------------------
-" ColorSchemes
-"
-" source ~/.config/nvim/plugins/dracula.vim
-source ~/.config/nvim/plugins/nord.vim
+" ------------ ColorSchemes -------------
+
+source ~/.config/nvim/plugins/dracula.vim
+" source ~/.config/nvim/plugins/nord.vim
+
+colorscheme dracula
 " ---------------------------------------
-source ~/.config/nvim/plugins/treesitter.vim
+
 source ~/.config/nvim/plugins/airline.vim
-source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
+source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/commentary.vim
-source ~/.config/nvim/plugins/editorconfig.vim
-source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/fugitive.vim
-source ~/.config/nvim/plugins/telekasten.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/polyglot.vim
-source ~/.config/nvim/plugins/quickscope.vim
-source ~/.config/nvim/plugins/rooter.vim
-source ~/.config/nvim/plugins/smooth-scroll.vim
-source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/which-key.vim
+source ~/.config/nvim/plugins/markdown-preview.vim
 
-" source ~/.config/nvim/plugins/fzf.vim
-" source ~/.config/nvim/plugins/markdown-preview.vim
-" source ~/.config/nvim/plugins/arduino.vim
-" source ~/.config/nvim/plugins/projectionist.vim
 " source ~/.config/nvim/plugins/dispatch.vim
 
 call plug#end()
 doautocmd User PlugLoaded
 
-colorscheme nord
 
 "--------------------------------------------------------------------------
 " Miscellaneous
 "--------------------------------------------------------------------------
+
+" Boilerplates
+autocmd BufNewFile readme.md 0r ~/.config/nvim/templates/readme.md
+autocmd BufNewFile index.html 0r ~/.config/nvim/templates/index.html
+autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/bash.sh
 
 augroup FileTypeOverrides
     autocmd!

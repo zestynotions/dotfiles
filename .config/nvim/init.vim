@@ -66,13 +66,6 @@ map gf :edit <cfile><cr>
 " Toggle Telescope
 nnoremap <leader>T :Telescope find_files<cr>
 
-
-" Quicker switching between windows
-" nmap <silent> <C-h> <C-w>h
-" nmap <silent> <C-j> <C-w>j
-" nmap <silent> <C-k> <C-w>k
-" nmap <silent> <C-l> <C-w>l
-
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -110,12 +103,6 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-
-" Open the current file in the default program
-nmap <leader>x :!xdg-open %<cr><cr>
-
-" Quicky escape to normal mode
-imap jj <esc>
 
 " Easy insertion of a trailing ; or , from insert mode
 imap ;; <Esc>A;<Esc>

@@ -147,7 +147,8 @@ colorscheme dracula
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/fzf.vim
+" source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/commentary.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/nerdtree.vim
@@ -156,7 +157,6 @@ source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/which-key.vim
 source ~/.config/nvim/plugins/markdown-preview.vim
 
-" source ~/.config/nvim/plugins/dispatch.vim
 
 call plug#end()
 doautocmd User PlugLoaded

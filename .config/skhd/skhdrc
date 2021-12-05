@@ -102,8 +102,7 @@ cmd + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
 #          yabai -m window --toggle pip
 
 
-# fn + m : NX_KEYTYPE_MUTm
-
+# cmd + alt - m : NX_KEYTYPE_MUTE
 # "sound_up"          (NX_KEYTYPE_SOUND_UP)
 # "sound_down"        (NX_KEYTYPE_SOUND_DOWN)
 # "mute"              (NX_KEYTYPE_MUTE)

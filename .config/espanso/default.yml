@@ -16,44 +16,21 @@ matches:
   - trigger: ":espanso"
     replace: "Hi there!"
 
-  # Month and date
-  - trigger: ":md"
-    replace: "{{monthdate}}"
-    vars:
-      - name: monthdate
-        type: date
-        params:
-          format: "%m %d, %Y "
-  
   # Dates
   - trigger: ":dd"
-    replace: "{{mydate}}"
+    replace: "{{mydate}} "
     vars:
       - name: mydate
         type: date
         params:
           format: "%Y-%m-%d "
 
+  - trigger: "ccopy"
+    replace: "©"
+
   # Shell commands
   - trigger: ":shell"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "echo Hello from your shell"
-  # ===============================================
-  # Signatures
-
-  - trigger: ":te"
-    replace: "Transform and Engage Team"
-
-  - trigger: ":tl"
-    replace: "http://teams.blabla.com\nhttp://communitypages.com\n"
-  
-  - trigger: ":br"
-    replace: "Best Regards,\nAlf Nielsen\n"
-
+    replace: "{{output}}i" 
 
   # ===============================================
   - trigger: ":ip"
@@ -107,5 +84,5 @@ matches:
         type: "clipboard"
 
 
-undo_backspace: true
+undo_backspace: false
 show_notifications: false

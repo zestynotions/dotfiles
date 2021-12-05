@@ -1,4 +1,4 @@
-name: zns-auto-correct 
+name: zns-autocorrect 
 parent: default
 matches:
   # Start Months

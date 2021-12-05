@@ -141,7 +141,7 @@ source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/which-key.vim
-source ~/.config/nvim/plugins/markdown-preview.vim
+source ~/.config/nvim/plugins/autopairs.vim
 
 
 call plug#end()

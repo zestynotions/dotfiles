@@ -66,13 +66,6 @@ map gf :edit <cfile><cr>
 " Toggle Telescope
 nnoremap <leader>T :Telescope find_files<cr>
 
-
-" Quicker switching between windows
-" nmap <silent> <C-h> <C-w>h
-" nmap <silent> <C-j> <C-w>j
-" nmap <silent> <C-k> <C-w>k
-" nmap <silent> <C-l> <C-w>l
-
 " Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -111,12 +104,6 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
-" Open the current file in the default program
-nmap <leader>x :!xdg-open %<cr><cr>
-
-" Quicky escape to normal mode
-imap jj <esc>
-
 " Easy insertion of a trailing ; or , from insert mode
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
@@ -147,7 +134,6 @@ colorscheme dracula
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
-" source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/commentary.vim
 source ~/.config/nvim/plugins/fugitive.vim
@@ -155,7 +141,7 @@ source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/which-key.vim
-source ~/.config/nvim/plugins/markdown-preview.vim
+source ~/.config/nvim/plugins/autopairs.vim
 
 
 call plug#end()

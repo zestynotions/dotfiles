@@ -59,25 +59,23 @@ alt + ctrl - f : yabai -m window --grid 1:1:0:0:1:1
 # options: zoom-parent, zoom-fullscreen, native-fullscreen
 alt + ctrl - z : yabai -m window --toggle zoom-parent
 
-# make floating window fill center strip of screen
-alt + ctrl - c : yabai -m window --grid 7:5:1:0:3:7
 
 
 # -----------------
-# Float 2 Columns 
+# Float 3 Columns 
 # -----------------
-cmd + alt - u : yabai -m window --grid 1:2:0:0:1:1 # left
-cmd + alt - i : yabai -m window --grid 1:2:1:0:1:1 # right
-
+shift + alt - y : yabai -m window --grid 1:2:0:0:1:1 # left
+shift + alt - u : yabai -m window --grid 7:5:1:0:3:7 # center
+shift + alt - i : yabai -m window --grid 1:2:1:0:1:1 # right
 
 # -----------------
 # Float 4 X 4 Grid
 # -----------------
-cmd + alt - h : yabai -m window --grid 2:8:1:0:3:1 # Left upper
-cmd + alt - l : yabai -m window --grid 2:8:4:0:3:1 # Right upper
+shift + alt - h : yabai -m window --grid 2:8:1:0:3:1 # Left upper
+shift + alt - l : yabai -m window --grid 2:8:4:0:3:1 # Right upper
 
-cmd + alt - j : yabai -m window --grid 2:8:1:1:3:1 # Left lower
-cmd + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
+shift + alt - j : yabai -m window --grid 2:8:1:1:3:1 # Left lower
+shift + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
 
 # send window to monitor and follow focus
 # ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next

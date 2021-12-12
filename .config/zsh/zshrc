@@ -42,7 +42,6 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 # ---------------------------------------------------------
 alias ZZ=''                 # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
-alias cat='bat'             # remap cat to bat
 alias v='nvim' 				# Another alias for Neovim 
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
@@ -79,7 +78,7 @@ source ~/.config/bin/git-prompt.sh          # adding git functionality to the zs
 source ~/.config/alacritty/prv_aliases 		# Create and add your private aliases in this file
 source ~/.config/alacritty/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
-. /usr/local/etc/profile.d/z.sh             # sourcing the Z program for fast directory switching
+. ~/.config/bin/z.sh             # sourcing the Z program for fast directory switching
 
 pfetch
 # uname_info_figlet                   # show terminal initial info with s splash of color

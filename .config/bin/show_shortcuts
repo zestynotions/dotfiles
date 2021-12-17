@@ -8,17 +8,17 @@ grep 'alias ' ~/.zshrc|sort >> ~/.config/bin/Shortcuts
 if [ "$(uname)" == "Darwin" ]; then
     # Collect, sort and mark section if OSX shortcuts
     echo '\n# --- OSX specific aliases ---' >> ~/.config/bin/Shortcuts
-    grep 'alias ' ~/.config/aliases/osx_aliases|sort >> ~/.config/bin/Shortcuts
+    grep 'alias ' ~/.config/alacritty/osx_aliases|sort >> ~/.config/bin/Shortcuts
 else
     # Collect, sort and mark section if arch shortcuts
     echo '\n# --- Arch specific aliases ---' >> ~/.config/bin/Shortcuts
-    grep 'alias ' ~/.config/aliases/arch_aliases|sort >> ~/.config/bin/Shortcuts
+    grep 'alias ' ~/.config/alacritty/arch_aliases|sort >> ~/.config/bin/Shortcuts
 fi
 
 
 # Collect, sort and mark section for Private shortcuts (Add your secret shortcuts like ip and name specific shortcuts that you dont want to share with github etc here)
 echo '\n# --- Private aliases ---' >> ~/.config/bin/Shortcuts
-grep 'alias ' ~/.config/aliases/prv_aliases|sort >> ~/.config/bin/Shortcuts
+grep 'alias ' ~/.config/alacritty/prv_aliases|sort >> ~/.config/bin/Shortcuts
 
 # Display all the shortcuts in Bat with colors
 bat ~/.config/bin/Shortcuts

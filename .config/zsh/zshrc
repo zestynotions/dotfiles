@@ -30,7 +30,6 @@ function chpwd() {
     pwd; exa -la --git --git-ignore --color=always --group-directories-first
 }
 
-pfetch # show terminal initial info with s splash of color
 
 # ------------- Defaults ----------------------------------
 
@@ -44,21 +43,24 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 
 # ------------- Aliases -----------------------------------
 
-alias ZZ=''                 # Error handling for when I exit nvim times 2 by mistake.
-alias cs='cht.sh $1' 		# Cheatsheet for man page alternative. e.g. "cs rsync" 
+alias ZZ=''           # Error handling for when I exit nvim times 2 by mistake.
+alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias v='nvim' 				# Another alias for Neovim 
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
-alias f='br ~/ ;ll'         # Search from Home directory
-alias fc='br ~/.config/ ;ll'# search from config directory '+e' opens file in editor
+alias du='duf'        # show mounts and disk usage
+alias sk='sk --preview="bat {} --color=always"'                     # Search using Skim
+alias skr='sk --ansi -i -c "rg --color=always --line-number "{}""'  # Rigrep Search using Skim
+alias f='br ~/ ;ll'          # Search from Home directory
+alias fc='br ~/.config/ ;ll' # search from config directory '+e' opens file in editor
 alias q='exit' 				# Exits the terminal (Quit)
 alias ...='cd ../.. ;ll'    # Go up 2 levels
 alias ..='cd .. ;ll'        # Go up 2 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
-alias t='tmux' 	        	# Starts a tmux session
-alias pf='pfetch'           # runs pfetch terminal splash
+alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
-alias i='uname_info_figlet'	# This calls the greeting message for the terminal on open, hostname, type and time + date.
+alias pf='pfetch'           # runs pfetch terminal splash
+alias i='pfetch'           # runs pfetch terminal splash
 alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 
@@ -70,9 +72,7 @@ alias cfgc='git_commit'                            # Simplified commit all and p
 
 # ----------------- Edit config files ---------------------
 
-alias ee='espanso edit'                 # Start Neovim with espanso config
-alias ec='cd ~/.config/ ; nvim'         # Start Neovim with base in the .config directory makes if faster to find files
-alias ev='nvim ~/.config/nvim/init.vim' # Edit Neovim config.
+alias ee='espanso edit'             # Start Neovim with espanso config
 alias ez='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 
 # ----------------- Source Other --------------------------
@@ -83,3 +83,4 @@ source ~/.config/alacritty/osx_aliases 		# If like me you are in OSX you might h
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 . ~/.config/bin/z.sh             # sourcing the Z program for fast directory switching
 
+pfetch # show terminal initial info with s splash of color

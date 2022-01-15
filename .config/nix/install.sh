@@ -37,7 +37,7 @@ git clone --bare https://github.com/zestynotions/dotfiles.git $HOME/.cfg
 rm -rf .zshrc
 rm -rf .gitignore
 rm -rf .config
-cfg checkout
+cfg checkout --force
 
 
 # Step 6 - Ensure Neovim has packer pluin manager installed and update it

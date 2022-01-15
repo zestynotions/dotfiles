@@ -37,13 +37,13 @@ git clone --bare https://github.com/zestynotions/dotfiles.git $HOME/.cfg
 rm -rf .zshrc
 rm -rf .gitignore
 rm -rf .config
-cfg -f checkout
+cfg checkout
 
 
-# Step X chmod new zsh config
-sudo chmod 777 .zshrc
-
-# Step 7 - Ensure Neovim has packer pluin manager installed and update it
+# Step 6 - Ensure Neovim has packer pluin manager installed and update it
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+# Step 7 - reboot into new environtment
+sudo shutdown -r now

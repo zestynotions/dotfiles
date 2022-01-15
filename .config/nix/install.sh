@@ -23,7 +23,8 @@ nix-env -iA \
   nixpkgs.broot \
   nixpkgs.ripgrep \
   nixpkgs.rsync \
-  nixpkgs.exa
+  nixpkgs.exa \
+
 
 
 # Step 4 - Add zsh to list of shells and change user shell to zsh
@@ -41,5 +42,16 @@ rm -rf .config
 git clone --bare https://github.com/zestynotions/dotfiles.git $HOME/.cfg
 cfg checkout --force
 
-# Step 6 - reboot into new environtment
+# Step 6 - link zshrc and environtment
+ln -sf $HOME/.config/zsh/zshrc .zshrc
+ln -sf $HOME/.config/zsh/zshenv .zshenv
+
+
+# Step 7 - Update Neovim 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.neovim
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+
+# Step 8 - reboot into new environtment
 sudo shutdown -r now

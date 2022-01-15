@@ -34,6 +34,8 @@ sudo chsh -s $(which zsh) $USER
 # Step 5 - Get dotfiles needed
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 git clone --bare https://github.com/zestynotions/dotfiles.git $HOME/.cfg
+rm -rf .local
+rm -rf .cfg
 rm -rf .zshrc
 rm -rf .gitignore
 rm -rf .config
@@ -41,9 +43,9 @@ cfg checkout --force
 
 
 # Step 6 - Ensure Neovim has packer pluin manager installed and update it
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+#  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Step 7 - reboot into new environtment
 sudo shutdown -r now

@@ -30,7 +30,7 @@ set $menu wofi --show run
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/.config/wallpapers/manjaro05.jpg fill
+output * bg ~/.config/wallpapers/latest.jpg fill
 #
 # Example configuration:
 #
@@ -73,7 +73,7 @@ output * bg ~/.config/wallpapers/manjaro05.jpg fill
 
 # bindsym $mod+Return exec $term
 # bindsym $mod+Return exec LIBGL_ALWAYS_SOFTWARE=1 alacritty
-bindsym $mod+Return exec foot
+bindsym $mod+t exec alacritty
 
 # Kill focused window
 bindsym $mod+q kill

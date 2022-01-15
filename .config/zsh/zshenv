@@ -1,3 +1,4 @@
+export WLR_NO_DRM_MODIFIERS=1 sway
 export LF_ICONS="\
 tw=:\
 st=:\

@@ -23,7 +23,7 @@ nix-env -iA \
   nixpkgs.broot \
   nixpkgs.ripgrep \
   nixpkgs.rsync \
-  nixokgs.exa
+  nixpkgs.exa
 
 
 # Step 4 - Add zsh to list of shells and change user shell to zsh

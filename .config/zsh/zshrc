@@ -47,6 +47,7 @@ alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
+alias n='notetaker'   # script for taking notes
 alias f='br ~/ '          # Search from Home directory
 alias fc='br ~/.config/ ' # search from config directory '+e' opens file in editor
 alias q='exit' 				# Exits the terminal (Quit)

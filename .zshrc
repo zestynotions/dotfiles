@@ -73,8 +73,21 @@ alias ez='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 # ----------------- Source Other --------------------------
 source ~/.config/bin/git-prompt.sh        # adding git functionality to the zsh prompt
 source ~/.config/alacritty/prv_aliases 		# Create and add your private aliases in this file
-source ~/.config/alacritty/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
 source $HOME/Library/Application\ Support/org.dystroy.broot/launcher/bash/br # Find tool writtin in rust for searching files and directories fast
 . ~/.config/bin/z.sh             # sourcing the Z program for fast directory switching
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+source ~/.config/alacritty/osx_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
+  ;;
+  Linux)
+    # commands for Linux go here
+source ~/.config/alacritty/arch_aliases 		# If like me you are in OSX you might have osx specific aliases. e.g. "brew" instead of "pacman"
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
 
 pfetch # show terminal initial info with s splash of color

@@ -28,6 +28,12 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+ 
+  augroup _template
+    autocmd!
+    autocmd BufNewFile *.php 0r ~/.config/nvim/template/php.php
+    autocmd BufNewFile *.sh 0r ~/.config/nvim/template/bash.sh
+  augroup end
 ]]
 
 -- Autoformat

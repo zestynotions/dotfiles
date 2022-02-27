@@ -25,22 +25,29 @@ matches:
         params:
           format: "%Y-%m-%d "
 
-  - trigger: "ccopy"
+  - trigger: ":ccopy"
     replace: "©"
+ 
+  - trigger: ":ttm"
+    replace: "™"
+
+  - trigger: ":ip"
+    replace: "ifconfig|grep 'inet ' \n "
+
 
   # Shell commands
   - trigger: ":shell"
     replace: "{{output}}i" 
 
   # ===============================================
-  - trigger: ":ip"
-    replace: "{{output}}"
-    vars:
-    - name: output
-      type: shell
-      params:
-        cmd: "curl 'https://api.ipify.org'"
-        shell: zsh
+  #- trigger: ":ip"
+  #  replace: "{{output}}"
+  #  vars:
+  #  - name: output
+  #    type: shell
+  #    params:
+  #      cmd: "ifconfig|grep 'inet ' "
+  #      shell: zsh
 
 
   - trigger: ":quote"
@@ -77,7 +84,7 @@ matches:
     image_path: "/path/to/image.png"
 
 
-  - trigger: ":a"
+  - trigger: ":aa"
     replace: "<a href='{{clipboard}}' />$|$</a>"
     vars:
       - name: "clipboard"

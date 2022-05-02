@@ -53,10 +53,13 @@ alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
+
+# unuify all fzf + edit to become cd to dir and nvim
 alias n='notetaker'   # script for taking notes
 alias nf='searchnotes' # Jump to Icloud Note folder and open nvim
 alias f='br ~/ '          # Search from Home directory
-alias fc='br ~/.config/ ' # search from config directory '+e' opens file in editor
+alias fc='br ~/.config/ ' # search from config directory '+ e' opens file in editor
+
 alias q='exit' 				# Exits the terminal (Quit)
 alias ...='cd ../.. ;ll'  # Go up 2 levels
 alias ..='cd .. ;ll'      # Go up 2 levels
@@ -97,5 +100,8 @@ source ~/.config/alacritty/arch_aliases 		# If like me you are in OSX you might 
     # commands for FreeBSD go here
   ;;
 esac
+
+# uncomments for servers
+# tmux attach || tmux new
 
 pfetch # show terminal initial info with s splash of color

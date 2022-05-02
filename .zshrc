@@ -30,6 +30,13 @@ function chpwd() {
     pwd; exa -la --git --git-ignore --color=always --group-directories-first
 }
 
+# Get to notes fast
+noteFolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/ZestyNotions"
+function searchnotes() {
+  cd $noteFolder
+  nvim -c "set wrap" \
+       -c "Telescope find_files"
+}
 
 # ------------- Defaults ----------------------------------
 export EDITOR='nvim'
@@ -39,7 +46,6 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
-
 # ------------- Aliases -----------------------------------
 alias ZZ=''           # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
@@ -48,6 +54,7 @@ alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 alias n='notetaker'   # script for taking notes
+alias nf='searchnotes' # Jump to Icloud Note folder and open nvim
 alias f='br ~/ '          # Search from Home directory
 alias fc='br ~/.config/ ' # search from config directory '+e' opens file in editor
 alias q='exit' 				# Exits the terminal (Quit)
@@ -69,6 +76,7 @@ alias cfgc='git_commit'                            # Simplified commit all and p
 # ----------------- Edit config files ---------------------
 alias ee='espanso edit'             # Start Neovim with espanso config
 alias ez='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
+alias sz='source ~/.zshrc'          # source the zsh config file
 
 # ----------------- Source Other --------------------------
 source ~/.config/bin/git-prompt.sh        # adding git functionality to the zsh prompt

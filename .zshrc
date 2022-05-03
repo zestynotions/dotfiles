@@ -24,6 +24,9 @@ PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ » %f'
 # if you hit ESC while writing a command you can edit the command with vim commands
 # set -o vi   
 
+
+icloudfolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
+
 # Show current working directory breadcrumb and list files
 function chpwd() {
     emulate -L zsh
@@ -31,7 +34,7 @@ function chpwd() {
 }
 
 # Get to notes fast
-noteFolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/ZestyNotions"
+noteFolder="$icloudfolder/ZestyNotions"
 function searchnotes() {
   cd $noteFolder
   nvim -c "set wrap" \

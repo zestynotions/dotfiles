@@ -44,7 +44,11 @@ shift + cmd - 4 : yabai -m window --space 4
 shift + cmd - 5 : yabai -m window --space 5
 
 
-alt - q : $SHELL -c '. $HOME/.config/bin/notetakerwindow'
+# quict note
+alt - q : open -a Alacritty.app;\
+          yabai -m window --focus float;\
+          yabai -m window --grid 7:5:1:0:3:7;\
+          skhd --key "n"
 
 
 #------------------- Reminder ----------------------------------------
@@ -56,12 +60,15 @@ alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 9:9:2:2:5:5
 
 # make floating window fill screen
-alt + ctrl - f : yabai -m window --grid 1:1:0:0:1:1
+shift + alt - f : yabai -m window --grid 1:1:0:0:1:1
 
 # options: zoom-parent, zoom-fullscreen, native-fullscreen
-alt + ctrl - z : yabai -m window --toggle zoom-parent
+shift + alt - z : yabai -m window --toggle zoom-parent
 
-
+# Youtube opt
+shift + alt - m : yabai -m window --toggle float;\
+                  yabai -m window --grid 7:5:1:0:3:7;\
+                  skhd --key "t"
 
 # -----------------
 # Float 3 Columns 
@@ -136,10 +143,11 @@ shift + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
 #
 #   literal      = 'single letter or built-in keyword'
 #
-# ################################################################ #
+##################################################################
+#
 #   Launch skhd in observer mode: skhd --observe or skhd -o. Press ctrl+c to quit.
 #   
-# ################################################################ #
+##################################################################
 #   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
 #
 #   proc_map_lst = * <proc_map>
@@ -159,6 +167,11 @@ shift + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
 #                  prepend '\' at the end of the previous line.
 #
 #                  an EOL character signifies the end of the bind.
+# -k | --key: Synthesize a keypress (same syntax as when defining a hotkey)
+#     skhd -k "shift + alt - 7"
+#
+# -t | --text: Synthesize a line of text
+#     skhd -t "hello, worldシ"
 #
 #   ->           = keypress is not consumed by skhd
 #

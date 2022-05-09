@@ -30,7 +30,7 @@ icloudfolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 # Show current working directory breadcrumb and list files
 function chpwd() {
     emulate -L zsh
-    pwd; exa -la --git --git-ignore --color=always --group-directories-first
+    pwd; exa -lha --git --git-ignore --color=always --group-directories-first
 }
 
 # Get to notes fast
@@ -71,8 +71,11 @@ alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias pf='pfetch'         # runs pfetch terminal splash
 alias i='pfetch'          # runs pfetch terminal splash
-alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ll='pwd; exa -lha --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ls='pwd; exa -lha --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias cat='bat -p'
+alias bat='bat -p'
+
 
 # ----------------- Git .config magic ---------------------
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles

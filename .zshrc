@@ -30,7 +30,7 @@ icloudfolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 # Show current working directory breadcrumb and list files
 function chpwd() {
     emulate -L zsh
-    pwd; exa -lha --git --git-ignore --color=always --group-directories-first
+    pwd; exa -la --git --git-ignore --color=always --group-directories-first
 }
 
 # Get to notes fast
@@ -49,6 +49,7 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
+
 # ------------- Aliases -----------------------------------
 alias ZZ=''           # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
@@ -57,22 +58,23 @@ alias vim='nvim' 			# Another alias for Neovim
 alias a='sh show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 
-# unuify all fzf + edit to become cd to dir and nvim
+# unify all fzf + edit to become cd to dir and nvim
 alias n='notetaker'   # script for taking notes
 alias nf='searchnotes' # Jump to Icloud Note folder and open nvim
 alias f='br ~/ '          # Search from Home directory
 alias fc='br ~/.config/ ' # search from config directory '+ e' opens file in editor
+alias cdic='cd $icloudfolder' #cd to iCloud
 
 alias q='exit' 				# Exits the terminal (Quit)
-alias ...='cd ../.. ;ll'  # Go up 2 levels
-alias ..='cd .. ;ll'      # Go up 2 levels
+alias ...='cd ../.. '  # Go up 2 levels
+alias ..='cd .. '      # Go up 1 levels
 alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
 alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias pf='pfetch'         # runs pfetch terminal splash
 alias i='pfetch'          # runs pfetch terminal splash
-alias ll='pwd; exa -lha --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias ls='pwd; exa -lha --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias cat='bat -p'
 alias bat='bat -p'
 

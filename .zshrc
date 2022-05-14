@@ -75,8 +75,8 @@ alias pf='pfetch'         # runs pfetch terminal splash
 alias i='pfetch'          # runs pfetch terminal splash
 alias ll='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias cat='bat -p'
-alias bat='bat -p'
+alias cat='bat -p'        # cat -> bat
+alias bat='bat -p'        # bat -> bat -plain files
 
 
 # ----------------- Git .config magic ---------------------

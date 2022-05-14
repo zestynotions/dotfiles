@@ -7,7 +7,7 @@ window:
   padding:
     x: 8
     y: 8
-  decorations: none
+  decorations: buttonless
 scrolling:
   history: 10000
   multiplier: 3

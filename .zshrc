@@ -65,10 +65,10 @@ alias f='br ~/ '          # Search from Home directory
 alias fc='br ~/.config/ ' # search from config directory '+ e' opens file in editor
 alias cdic='cd $icloudfolder' #cd to iCloud
 
-alias q='exit' 				# Exits the terminal (Quit)
-alias ...='cd ../.. '  # Go up 2 levels
-alias ..='cd .. '      # Go up 1 levels
-alias fg='zns_header' 		# Use this to create the asci 3d headers e.g. "fg zns"
+alias q='exit' 				    # Exits the terminal (Quit)
+alias ...='cd ../.. '     # Go up 2 levels
+alias ..='cd .. '         # Go up 1 levels
+alias fg=''fg'' 		      # Bring back a process that was in the background
 alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias pf='pfetch'         # runs pfetch terminal splash
@@ -78,6 +78,8 @@ alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-fir
 alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
 
+alias r='rustc $1'
+alias gob='go build -ldflags=" -s -w" $1'
 
 # ----------------- Git .config magic ---------------------
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles

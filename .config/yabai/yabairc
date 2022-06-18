@@ -54,16 +54,21 @@ yabai -m config right_padding                0
 yabai -m config window_gap                   8
 
 # Float windows
-yabai -m rule --add app="Spotify" manage=off
-yabai -m rule --add app="Wire" manage=off
-yabai -m rule --add app="Mail" manage=off
-yabai -m rule --add app="^System" manage=off
-yabai -m rule --add app="CleanMyMac" manage=off
-yabai -m rule --add app="VLC" manage=off
-yabai -m rule --add app="1Password" manage=off
-yabai -m rule --add app="IINA" manage=off
-yabai -m rule --add app="Calculator" manage=off
-yabai -m rule --add app="Terminal" manage=off
+yabai -m rule --add app="^Spotify" manage=off
+yabai -m rule --add app="^Wire" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Archive Utilities$" manage=off
+yabai -m rule --add app="^Wally$" manage=off
+yabai -m rule --add app="^BalenaEtchers$" manage=off
+yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^Mail" manage=off
+yabai -m rule --add app="^CleanMyMac" manage=off
+yabai -m rule --add app="^VLC" manage=off
+yabai -m rule --add app="^1Password" manage=off
+yabai -m rule --add app="^IINA" manage=off
+yabai -m rule --add app="^Calculator" manage=off
+yabai -m rule --add app="^Terminal" manage=off
 
 for_window [ title="notetaker_window" ] floating enable
 

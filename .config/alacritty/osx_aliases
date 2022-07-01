@@ -13,7 +13,7 @@
 alias u='softwareupdate --all --install --force'    # Check for updates to OSX
 alias b='brew search $1'                # Search for app in Brew package manager for OSX
 alias bu='brew update && brew upgrade'   # update brew packages
-alias o='open $1'           			# Open folder in finder
+alias o='open .'           			# Open folder in finder
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias c='clear_compile'                 # use to compile a C program and run it.
 alias mux='tmuxinator'  				# start Tmuxinator

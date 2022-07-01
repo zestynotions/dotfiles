@@ -25,7 +25,9 @@ PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ » %f'
 # set -o vi   
 
 
-icloudfolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
+icloudFolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+obsidianFolder="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns"
+
 
 # Show current working directory breadcrumb and list files
 function chpwd() {
@@ -34,7 +36,7 @@ function chpwd() {
 }
 
 # Get to notes fast
-noteFolder="$icloudfolder/ZestyNotions"
+noteFolder="$obsidianFolder"
 function searchnotes() {
   cd $noteFolder
   nvim -c "set wrap" \

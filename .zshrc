@@ -62,10 +62,10 @@ alias du='duf'        # show mounts and disk usage
 
 # unify all fzf + edit to become cd to dir and nvim
 alias n='notetaker'   # script for taking notes
-alias nf='searchnotes' # Jump to Icloud Note folder and open nvim
+alias fn='searchnotes' # Jump to Icloud Note folder and open nvim
 alias f='br ~/ '          # Search from Home directory
 alias fc='br ~/.config/ ' # search from config directory '+ e' opens file in editor
-alias cdic='cd $icloudfolder' #cd to iCloud
+alias cdic='cd $icloudFolder' #cd to iCloud
 
 alias q='exit' 				    # Exits the terminal (Quit)
 alias ...='cd ../.. '     # Go up 2 levels
@@ -80,7 +80,7 @@ alias ls='pwd; exa -la --git --git-ignore --color=always --group-directories-fir
 alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
 
-alias r='rustc $1'
+alias r='rust_compile_run_clean $1'
 alias gob='go build -ldflags=" -s -w" $1'
 
 # ----------------- Git .config magic ---------------------

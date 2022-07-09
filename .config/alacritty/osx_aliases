@@ -22,5 +22,5 @@ alias ek='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 
 get_ip(){ 
-    ifconfig|grep "inet "|awk '{print $2}'|figlet -f larry3d 
+    ifconfig|grep "inet "|awk '{print $2}'|figlet 
 }

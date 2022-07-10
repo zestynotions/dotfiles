@@ -19,7 +19,7 @@ zstyle ':vcs_info:*' stagedstr ' +'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{red}${vcs_info_msg_0_}%f %F{122} ∲ » %f'
+PROMPT='%F{red}${vcs_info_msg_0_}%f %F{135} ∲ %f %F{82}» %f'
 
 # if you hit ESC while writing a command you can edit the command with vim commands
 # set -o vi   
@@ -86,7 +86,8 @@ alias gob='go build -ldflags=" -s -w" $1'
 # ----------------- Git .config magic ---------------------
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles
 alias cfgl='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline' # show git log in one line for the dotfiles
-alias cfgc='git_commit'                            # Simplified commit all and push for dotfiles 
+alias cfgc='cfg_commit'                            # Simplified commit all and push for dotfiles 
+alias gc='git_commit'                            # Simplified commit all and push for dotfiles 
 
 # ----------------- Edit config files ---------------------
 alias ee='espanso edit'             # Start Neovim with espanso config

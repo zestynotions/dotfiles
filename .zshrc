@@ -43,6 +43,10 @@ function searchnotes() {
        -c "Telescope find_files"
 }
 
+function searchconfigs() {
+  cd ~/.config
+  nvim -c "Telescope find_files"
+}
 # ------------- Defaults ----------------------------------
 export EDITOR='nvim'
 export BROWSER='brave'
@@ -93,7 +97,7 @@ alias gc='git_commit'                            # Simplified commit all and pus
 alias ee='espanso edit'             # Start Neovim with espanso config
 alias ez='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc'          # source the zsh config file
-
+alias vc='searchconfigs'            # Open nvim and telescope to config file
 # ----------------- Source Other --------------------------
 source ~/.config/bin/git-prompt.sh        # adding git functionality to the zsh prompt
 source ~/.config/alacritty/prv_aliases 		# Create and add your private aliases in this file

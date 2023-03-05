@@ -1,0 +1,8 @@
+#!/bin/sh
+# =================================
+# Git bare repo commit+push for dotfiles
+# =================================
+
+read -ep "Type GIT Commit Message: ";
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -am "${REPLY}" 
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push 

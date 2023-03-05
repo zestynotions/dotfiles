@@ -1,0 +1,210 @@
+
+################################################################
+#  ____     ___     ____
+# /\_ ,`\ /' _ `\  /',__\
+# \/_/  /_/\ \/\ \/\__, `\
+#   /\____\ \_\ \_\/\____/
+#   \/____/\/_/\/_/\/___/
+# 
+# skhdrc file ~/.config/skhd/skhrc      
+#
+################################################################
+                                         
+
+# app shortcuts
+
+cmd - return : open -a Alacritty.app
+
+alt - b : open -a Brave\ Browser.app
+alt - n : open -a Notes.app
+alt - e : open -a Finder.app
+alt - r : open -a Reminders.app
+alt - m : open -a Mail.app
+alt - o : open -a Obsidian.app
+
+
+# VIM focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+
+# swap managed window
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+
+
+# restart skhd
+cmd + shift - r : skhd --reload
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# rotate tree
+shift + alt - r : yabai -m space --rotate 90
+
+# full screen
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
+
+
+
+# send window to desktop and follow focus
+shift + ctrl - 1 : yabai -m window --space 1
+shift + ctrl - 2 : yabai -m window --space 2
+shift + ctrl - 3 : yabai -m window --space 3
+shift + ctrl - 4 : yabai -m window --space 4 
+shift + ctrl - 5 : yabai -m window --space 5
+shift + ctrl - 6 : yabai -m window --space 6
+
+# NOTE: Moving between deskspaces is handled by ctrl + 1 in system settings that way you dont need to disable security.
+
+
+# quict note
+alt - q : open -a Alacritty.app;\
+          yabai -m window --focus float;\
+          yabai -m window --grid 7:5:1:0:3:7;\
+          skhd --key "n"
+
+
+#------------------- Reminder ----------------------------------------
+#(rows) : (columns) : (x move) : (y move) : (row span) : (column span)	
+#---------------------------------------------------------------------
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 9:9:2:2:5:5
+
+# make floating window fill screen
+shift + alt - f : yabai -m window --grid 1:1:0:0:1:1
+
+# options: zoom-parent, zoom-fullscreen, native-fullscreen
+# shift + alt - z : yabai -m window --toggle zoom-parent
+
+# Youtube opt
+shift + alt - m : yabai -m window --toggle float;\
+                  yabai -m window --grid 7:5:1:0:3:7;\
+                  skhd --key "t"
+
+# -----------------
+# Float 3 Columns 
+# -----------------
+shift + alt - y : yabai -m window --grid 1:2:0:0:1:1 # left
+shift + alt - u : yabai -m window --grid 7:5:1:0:3:7 # center
+shift + alt - i : yabai -m window --grid 1:2:1:0:1:1 # right
+
+# -----------------
+# Float 4 X 4 Grid
+# -----------------
+shift + alt - h : yabai -m window --grid 2:8:1:0:3:1 # Left upper
+shift + alt - l : yabai -m window --grid 2:8:4:0:3:1 # Right upper
+
+shift + alt - j : yabai -m window --grid 2:8:1:1:3:1 # Left lower
+shift + alt - k : yabai -m window --grid 2:8:4:4:3:1 # Right lower
+
+# send window to monitor and follow focus
+# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+
+# increase window size
+# shift + alt - a : yabai -m window --resize left:-20:0
+# shift + alt - w : yabai -m window --resize top:0:-20
+
+# decrease window size
+# shift + cmd - s : yabai -m window --resize bottom:0:-20
+# shift + cmd - w : yabai -m window --resize top:0:20
+
+
+# toggle window split type
+# alt - e : yabai -m window --toggle split
+
+
+# toggle sticky(+float), topmost, picture-in-picture
+# alt - p : yabai -m window --toggle sticky;\
+#          yabai -m window --toggle topmost;\
+#          yabai -m window --toggle pip
+
+
+# cmd + alt - m : NX_KEYTYPE_MUTE
+# "sound_up"          (NX_KEYTYPE_SOUND_UP)
+# "sound_down"        (NX_KEYTYPE_SOUND_DOWN)
+# "mute"              (NX_KEYTYPE_MUTE)
+# "play"              (NX_KEYTYPE_PLAY)            
+# "previous"          (NX_KEYTYPE_PREVIOUS)        
+# "next"              (NX_KEYTYPE_NEXT)
+
+# ################################################################ #
+# THE FOLLOWING IS AN EXPLANATION OF THE GRAMMAR THAT SKHD PARSES. #
+# FOR SIMPLE EXAMPLE MAPPINGS LOOK FURTHER DOWN THIS FILE..        #
+# ################################################################ #
+
+# A list of all built-in modifier and literal keywords can
+# be found at https://github.com/koekeishiya/skhd/issues/1
+#
+# A hotkey is written according to the following rules:
+#
+#   hotkey       = <mode> '<' <action> | <action>
+#
+#   mode         = 'name of mode' | <mode> ',' <mode>
+#
+#   action       = <keysym> '[' <proc_map_lst> ']' | <keysym> '->' '[' <proc_map_lst> ']'
+#                  <keysym> ':' <command>          | <keysym> '->' ':' <command>
+#                  <keysym> ';' <mode>             | <keysym> '->' ';' <mode>
+#
+#   keysym       = <mod> '-' <key> | <key>
+#
+#   mod          = 'modifier keyword' | <mod> '+' <mod>
+#
+#   key          = <literal> | <keycode>
+#
+#   literal      = 'single letter or built-in keyword'
+#
+##################################################################
+#
+#   Launch skhd in observer mode: skhd --observe or skhd -o. Press ctrl+c to quit.
+#   
+##################################################################
+#   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
+#
+#   proc_map_lst = * <proc_map>
+#
+#   proc_map     = <string> ':' <command> | <string>     '~' |
+#                  '*'      ':' <command> | '*'          '~'
+#
+#   string       = '"' 'sequence of characters' '"'
+#
+#   command      = command is executed through '$SHELL -c' and
+#                  follows valid shell syntax. if the $SHELL environment
+#                  variable is not set, it will default to '/bin/bash'.
+#                  when bash is used, the ';' delimeter can be specified
+#                  to chain commands.
+#
+#                  to allow a command to extend into multiple lines,
+#                  prepend '\' at the end of the previous line.
+#
+#                  an EOL character signifies the end of the bind.
+# -k | --key: Synthesize a keypress (same syntax as when defining a hotkey)
+#     skhd -k "shift + alt - 7"
+#
+# -t | --text: Synthesize a line of text
+#     skhd -t "hello, worldシ"
+#
+#   ->           = keypress is not consumed by skhd
+#
+#   *            = matches every application not specified in <proc_map_lst>
+#
+#   ~            = application is unbound and keypress is forwarded per usual, when specified in a <proc_map>
+#
+# A mode is declared according to the following rules:
+#
+#   mode_decl = '::' <name> '@' ':' <command> | '::' <name> ':' <command> |
+#               '::' <name> '@'               | '::' <name>
+#
+#   name      = desired name for this mode,
+#
+#   @         = capture keypresses regardless of being bound to an action
+#
+################################################################# #

@@ -1,0 +1,74 @@
+#!/bin/sh
+# Author: ZNS 
+# Created: 2022-08-13
+# Description: a fuzzy find jump to folder based on zoxide curated folder list/history with bat for preview
+
+
+
+skjump() {
+  PATH_RESULT=$(zoxide query -l|sk --reverse --height=70% --margin=7% --border --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=2 {}')
+  cd "$PATH_RESULT" ||exit
+  ll
+}
+
+
+skjump_edit() {
+  PATH_RESULT=$(zoxide query -l|sk --reverse --height=70% --margin=7% --border --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
+  cd "$PATH_RESULT" ||exit
+  nvim -c "Telescope find_files"
+}
+
+
+
+
+
+fuzzyjump() {
+  PATH_RESULT=$(zoxide query -l|fzf --reverse --height=60% --margin=10% --border=rounded --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
+  cd "$PATH_RESULT" ||exit
+  ll
+}
+
+fuzzyjump_edit() {
+  PATH_RESULT=$(zoxide query -l|fzf --reverse --height=60% --margin=10% --border=rounded --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
+  cd "$PATH_RESULT" ||exit
+  nvim -c "Telescope find_files"
+}
+
+
+sk_kill() {
+    local pid_col
+    if [[ $(uname) = Linux ]]; then
+        pid_col=2
+    elif [[ $(uname) = Darwin ]]; then
+        pid_col=3;
+    else
+        echo 'Error: unknown platform'
+        return
+    fi
+    local pids=$(
+      ps -f -u $USER | sed 1d | sk --multi | tr -s [:blank:] | cut -d' ' -f"$pid_col"
+      )
+    if [[ -n $pids ]]; then
+        echo "$pids" | xargs kill -9 "$@"
+    fi
+}
+
+fzf_kill() {
+    local pid_col
+    if [[ $(uname) = Linux ]]; then
+        pid_col=2
+    elif [[ $(uname) = Darwin ]]; then
+        pid_col=3;
+    else
+        echo 'Error: unknown platform'
+        return
+    fi
+    local pids=$(
+      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f"$pid_col"
+      )
+    if [[ -n $pids ]]; then
+        echo "$pids" | xargs kill -9 "$@"
+    fi
+}
+
+

@@ -1,0 +1,37 @@
+#!/bin/zsh
+################################################################
+#  ____     ___     ____
+# /\_ ,`\ /' _ `\  /',__\
+# \/_/  /_/\ \/\ \/\__, `\
+#   /\____\ \_\ \_\/\____/
+#   \/____/\/_/\/_/\/___/
+#
+# Coding type layout script as alternative to tmuxinator 
+################################################################
+
+# VIM focus window
+# alt - h : yabai -m window --focus west
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus east
+
+#------------------- Reminder ----------------------------------------
+#(rows) : (columns) : (x move) : (y move) : (row span) : (column span)	
+#---------------------------------------------------------------------
+
+cd $code_path;
+
+# yabai -m window --toggle float; 
+
+open -a Alacritty.app
+yabai -m window --grid 2:4:1:0:2:3
+
+open -a Reminders.app 
+yabai -m window --grid 2:4:0:0:1:1
+
+
+
+# open -a Brave\ Browser.app
+# yabai -m window --grid 2:4:0:0:1:1
+# open -a Reminders.app;
+# open -a Mail.app

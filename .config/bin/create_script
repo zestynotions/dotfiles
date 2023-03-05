@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# This script create more scripts, sets permissions and more.
+# Author: zns
+
+# Is there an Argument?
+if [[ ! $1 ]]; then
+    echo "Missing Argument!"
+    exit 1
+fi
+
+scriptname="$1"
+bindir="${HOME}/.config/bin"
+filename="${bindir}/${scriptname}"
+
+if [[ -e $filename ]]; then
+    echo "File ${filename} already exists!"
+    exit 1
+fi
+
+if type "$scriptname"; then
+    echo "There is already a command named ${scriptname}"
+    exit 1
+fi
+
+
+
+# check if bin dir exists
+if [[ ! -d $bindir ]]; then
+    # if not, create dir
+    if mkdir "$bindir"; then
+        echo "Created ${bindir} successfully!"
+    else
+        echo "Could not create ${bindir}"
+        exit 1
+    fi
+fi
+
+date=$(date +"%Y-%m-%d")
+
+# Create script
+echo '#!/bin/sh' > "$filename"
+echo "# Author: $USER" >> "$filename"
+echo "# Created: $date" >> "$filename"
+echo "# Description: " >> "$filename"
+
+
+# make executable
+chmod u+x "$filename"
+
+# Open in nvim
+$EDITOR "$filename"

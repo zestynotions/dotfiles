@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
---  use { "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
 

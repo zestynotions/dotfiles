@@ -101,7 +101,7 @@ alias fg=''fg'' 		      # Bring back a process that was in the background
 alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias pf='clear; pfetch'         # runs pfetch terminal splash
-alias i='clear; pfetch'          # runs pfetch terminal splash
+alias i='clear; macchina'          # runs macchina terminal splash
 alias ll='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias ls='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias cat='bat -p'        # cat -> bat
@@ -147,4 +147,4 @@ esac
 
 eval "$(zoxide init zsh)"
 
-pfetch # show terminal initial info with s splash of color
+macchina # show terminal initial info with s splash of color

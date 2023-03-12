@@ -19,7 +19,7 @@ alias e='clear; skjump_edit'  # script for jumping to folder and open telescope 
 alias fg=''fg'' 		      # Bring back a process that was in the background
 alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias gc='git_commit'                            # Simplified commit all and push for dotfiles 
-alias i='clear; pfetch'          # runs pfetch terminal splash
+alias i='clear; macchina'          # runs macchina terminal splash
 alias j='clear; skjump'       # script for jumping between folder
 alias ll='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias ls='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa

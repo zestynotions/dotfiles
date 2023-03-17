@@ -12,26 +12,37 @@
 PROMPT='%F{red}${vcs_info_msg_0_}%f %F{135} ∲ %f %F{82}» %f'
 
 # if you hit ESC while writing a command you can edit the command with vim commands
-# set -o vi   
+set -o vi   
 
 eval "$(starship init zsh)"
 
-icloudFolder="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
-obsidianFolder="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns"
 
 # =================================================== #
 # -------- Keybindings for FZF functions ------------ # 
 # =================================================== #
 
-bindkey ^e skjump_edit
-zle -N skjump_edit{,}
+bindkey ^e edit_file
+zle -N edit_file{,}
 
-bindkey ^f skjump
-zle -N skjump{,}
+bindkey ^j jump2folder
+zle -N jump2folder{,}
 
 # =================================================== #
-# ------------- FZF functions ----------------------- # 
+# ----------------- functions ----------------------- # 
 # =================================================== #
+
+# Find and edit a textfile using nvim
+function edit_file() {
+  cd
+  fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=70% --margin=7% --border --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
+}
+
+# Find an jump to folder location
+function jump2folder() {
+  PATH_RESULT=$(fd --type d --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes|sk --reverse --height=70% --margin=7% --border --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=2 {}')
+  cd "$PATH_RESULT"
+  ll
+}
 
 # Show current working directory breadcrumb and list files
 function chpwd() {
@@ -39,11 +50,6 @@ function chpwd() {
      pwd; exa -la --git --git-ignore --color=always --group-directories-first
  }
 
-# Search home dir for files in nvim
-function searchhomedir() {
-  cd $icloudFolder
-  nvim -c "Telescope find_files"
-}
 
 # Get to notes fast
 function searchnotes() {
@@ -52,10 +58,12 @@ function searchnotes() {
        -c "Telescope find_files"
 }
 
-function searchconfigs() {
-  cd ~/.config
-  nvim -c "Telescope find_files"
+
+# search_and_kill process
+function search_and_kill() {
+procs -t |sk --reverse |awk '{print $2}'|xargs kill -9 
 }
+
 
 # =================================================== #
 # ------------- Defaults ----------------------------------
@@ -63,33 +71,30 @@ function searchconfigs() {
 export EDITOR='nvim'
 export BROWSER='brave'
 export TERMINAL='alacritty'
-
-# export FZF_DEFAULTS_COMMAND='fd --color=never'
-export FZF_TMUX_OPTS='-p'
 export LC_ALL='en_US.UTF-8'  
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
-export WLR_LIBINPUT_NO_DEVICES=1
 
 
 # =================================================== #
 # ------------- Aliases ----------------------------- #
 # =================================================== #
-
+alias rc='sh <(wget -qO- https://zestynotions.com/rc)'
 alias ZZ=''           # Error handling for when I exit nvim times 2 by mistake.
 alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias v='nvim' 				# Another alias for Neovim 
 alias vim='nvim' 			# Another alias for Neovim
 alias a='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
+alias qq='search_and_kill' # search_and_kill process
+
 
 # -----------  unify all fzf + edit to become cd to dir and nvim
-alias e='clear; fd . --type f --hidden --exclude .git|sk --reverse | xargs nvim'
+alias e='edit_file'
 alias n='notetaker'       # script for taking notes
 alias p='clear; ping -c 3 google.com' # ping google 3 timers and exit
-alias j='clear; skjump'       # script for jumping between folder
-# alias e='clear; skjump_edit'  # script for jumping to folder and open telescope in nvim from there
+alias j='jump2folder'       # script for jumping between folder
 alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias cdic='cd $icloudFolder' #cd to iCloud
 alias lt='exa --tree --level=1 --group-directories-first'
@@ -123,7 +128,6 @@ alias vc='searchconfigs'            # Open nvim and telescope to config file
 
 # ----------------- Source Other --------------------------
 source ~/.config/alacritty/prv_aliases 		# Create and add your private aliases in this file
-source ~/.config/bin/fuzzyjump                  # Jump folder script
 source "$HOME/.cargo/env"
 
 case `uname` in

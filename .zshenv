@@ -1,4 +1,5 @@
 export WLR_NO_DRM_MODIFIERS=1 sway
+export XDG_RUNTIME_DIR="~/.run"
 export LF_ICONS="\
 tw=:\
 st=:\

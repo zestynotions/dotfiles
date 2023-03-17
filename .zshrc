@@ -68,7 +68,6 @@ export TERMINAL='alacritty'
 export FZF_TMUX_OPTS='-p'
 export LC_ALL='en_US.UTF-8'  
 export LANG='en_US.UTF-8'
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 export WLR_LIBINPUT_NO_DEVICES=1
@@ -86,10 +85,11 @@ alias a='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 
 # -----------  unify all fzf + edit to become cd to dir and nvim
+alias e='clear; fd . --type f --hidden --exclude .git|sk --reverse | xargs nvim'
 alias n='notetaker'       # script for taking notes
 alias p='clear; ping -c 3 google.com' # ping google 3 timers and exit
 alias j='clear; skjump'       # script for jumping between folder
-alias e='clear; skjump_edit'  # script for jumping to folder and open telescope in nvim from there
+# alias e='clear; skjump_edit'  # script for jumping to folder and open telescope in nvim from there
 alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias cdic='cd $icloudFolder' #cd to iCloud
 alias lt='exa --tree --level=1 --group-directories-first'

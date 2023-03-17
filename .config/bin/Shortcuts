@@ -2,6 +2,7 @@
 # =============================================
 # ======== zsh shortcuts ======================
 # =============================================
+# alias e='clear; skjump_edit'  # script for jumping to folder and open telescope in nvim from there
 alias ...='cd ../.. '     # Go up 2 levels
 alias ..='cd .. '         # Go up 1 levels
 alias Q='exit' 				    # Exits the terminal (Quit)
@@ -15,7 +16,7 @@ alias cfgc='cfg_commit'                            # Simplified commit all and p
 alias cfgl='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline' # show git log in one line for the dotfiles
 alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias du='duf'        # show mounts and disk usage
-alias e='clear; skjump_edit'  # script for jumping to folder and open telescope in nvim from there
+alias e='clear; fd . --type f --hidden --exclude .git|sk --reverse | xargs nvim'
 alias fg=''fg'' 		      # Bring back a process that was in the background
 alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias gc='git_commit'                            # Simplified commit all and push for dotfiles 

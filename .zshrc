@@ -11,7 +11,14 @@
 # setup zsh prompt if not using starship 
 # PROMPT='%F{red}${vcs_info_msg_0_}%f %F{135} ∲ %f %F{82}» %f'
 
-# if you hit ESC while writing a command you can edit the command with vim commands
+# --------------------------------------------------- # 
+# Show current working directory breadcrumb and list files
+# function chpwd() {
+#     emulate -L zsh
+#     pwd; exa -la --git --git-ignore --color=always --group-directories-first
+# }
+
+# if you hit ESC while writing a command you can edit the command with vim motions 
 set -o vi   
 
 eval "$(starship init zsh)"
@@ -40,8 +47,9 @@ function jump2file() {
 # Find an jump to folder location
 function jump2folder() {
   PATH_RESULT=$(fd --type d --search-path / --hidden --ignore-file ~/.config/bin/searchexcludes|sk --reverse --height=70% --margin=7% --border --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
+  clear
   cd "$PATH_RESULT"
-  ll
+  exa -la --icons --git --git-ignore --color=always --group-directories-first
 }
 
 # =================================================== #
@@ -58,17 +66,10 @@ function jump2dotfile() {
 # Find an jump to folder location in zoxide
 function jump2zoxide() {
   PATH_RESULT=$(zoxide query -l|sk --reverse --height=70% --margin=7% --border --prompt='Select a folder: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
+  clear
   cd "$PATH_RESULT"
-  ll
+  exa -la --icons --git --git-ignore --color=always --group-directories-first
 }
-
-# --------------------------------------------------- # 
-# Show current working directory breadcrumb and list files
-function chpwd() {
-     emulate -L zsh
-     pwd; exa -la --git --git-ignore --color=always --group-directories-first
- }
-
 
 # --------------------------------------------------- # 
 # Get to notes fast
@@ -82,7 +83,6 @@ function searchnotes() {
 function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9 
 }
-
 
 # =================================================== #
 # ------------- Defaults ---------------------------- #

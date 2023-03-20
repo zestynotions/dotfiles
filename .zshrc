@@ -10,7 +10,6 @@
 
 # setup zsh prompt if not using starship 
 # PROMPT='%F{red}${vcs_info_msg_0_}%f %F{135} ∲ %f %F{82}» %f'
-
 # --------------------------------------------------- # 
 # Show current working directory breadcrumb and list files
 # function chpwd() {
@@ -23,6 +22,10 @@ set -o vi
 
 eval "$(starship init zsh)"
 
+# ============== Define exa defaults ================ #
+exa_d="exa -la --icons --git --git-ignore --color=always --group-directories-first"
+
+alias vb='$exa_d'
 
 # =================================================== #
 # -------- Keybindings for FZF functions ------------ # 
@@ -94,6 +97,12 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
+
+
+# ====== Needed for Sway Tiling Window Manager ====== #
+export XDG_RUNTIME_DIR='/tmp'
+export WLR_NO_HARDWARE_CURSORS='1'
+export LIBINPUT_NO_DEVICES='1'
 
 
 # =================================================== #

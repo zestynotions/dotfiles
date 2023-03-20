@@ -36,6 +36,7 @@ alias sz='source ~/.zshrc'          # source the zsh config file
 alias t='tmux' 	        	# Starts a tmux session``
 alias ta='tmux attach' 		# Attaches any existing tmux sessions 
 alias v='nvim' 				# Another alias for Neovim 
+alias vb='$exa_d'
 alias ve='espanso edit'             # Start Neovim with espanso config
 alias vim='nvim' 			# Another alias for Neovim
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
@@ -58,7 +59,9 @@ alias u='softwareupdate --all --install --force'    # Check for updates to OSX
 # =============================================
 # ========= Private aliases ===================
 # =============================================
+alias alp='clear; ssh zns@10.0.0.199'      # ssh to Alpine Server
 alias btc='curl rate.sx/btc@1w' # Get latest BitCoin rate
+alias jdev='ssh chissoku@45.35.64.152'     # ssh to JIC dev server
 alias mac2vps='rsync -urvhP --exclude-from=$icloud_path/rsync_exclude --delete-after $icloud_path $www_path' # rsync Mac www to the vps www folder
 alias nas='clear; ssh zns@10.0.0.50'       # ssh to NAS
 alias rs='rsync -urvhP $1 zns@103.125.216.120:~/rsync/'     # rsync existing folder contents to VPS server

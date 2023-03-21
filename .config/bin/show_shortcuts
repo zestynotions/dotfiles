@@ -1,37 +1,13 @@
 #!/bin/sh
 
 # Collect, sort and mark section for zsh shortcuts
-echo '#!/bin/sh' > ~/.config/bin/Shortcuts
-echo '# =============================================' >> ~/.config/bin/Shortcuts
-echo '# ======== zsh shortcuts ======================' >> ~/.config/bin/Shortcuts
-echo '# =============================================' >> ~/.config/bin/Shortcuts
-grep 'alias ' ~/.zshrc|sort >> ~/.config/bin/Shortcuts
+echo '#!/bin/sh' >~/.config/bin/Shortcuts
+echo '# =============================================' >>~/.config/bin/Shortcuts
+echo '# ======== zsh shortcuts ======================' >>~/.config/bin/Shortcuts
+echo '# =============================================' >>~/.config/bin/Shortcuts
+grep 'alias ' ~/.zshrc | sort >>~/.config/bin/Shortcuts
 
-echo ' ' >> ~/.config/bin/Shortcuts
-
-if [ "$(uname)" == "Darwin" ]; then
-    # Collect, sort and mark section if OSX shortcuts
-    echo '# =============================================' >> ~/.config/bin/Shortcuts
-    echo '# ========= OSX specific aliases ==============' >> ~/.config/bin/Shortcuts
-    echo '# =============================================' >> ~/.config/bin/Shortcuts
-    grep 'alias ' ~/.config/alacritty/osx_aliases|sort >> ~/.config/bin/Shortcuts
-else
-    # Collect, sort and mark section if arch shortcuts
-    echo '# =============================================' >> ~/.config/bin/Shortcuts
-    echo '# ========= Arch specific aliases =============' >> ~/.config/bin/Shortcuts
-    echo '# =============================================' >> ~/.config/bin/Shortcuts
-    grep 'alias ' ~/.config/alacritty/arch_aliases|sort >> ~/.config/bin/Shortcuts
-fi
-
-echo ' ' >> ~/.config/bin/Shortcuts
-
-# Collect, sort and mark section for Private shortcuts (Add your secret shortcuts like ip and name specific shortcuts that you dont want to share with github etc here)
-echo '# =============================================' >> ~/.config/bin/Shortcuts
-echo '# ========= Private aliases ===================' >> ~/.config/bin/Shortcuts
-echo '# =============================================' >> ~/.config/bin/Shortcuts
-grep 'alias ' ~/.config/alacritty/prv_aliases|sort >> ~/.config/bin/Shortcuts
+echo ' ' >>~/.config/bin/Shortcuts
 
 # Display all the shortcuts in Bat with colors
-bat -p ~/.config/bin/Shortcuts
-
-
+bat ~/.config/bin/Shortcuts

@@ -36,7 +36,7 @@ function jump2zoxide() {
   PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
   clear
   cd "$PATH_RESULT"
-  ll
+  exa -la --icons --git --git-ignore --color=always --group-directories-first
 }
 
 # =================================================== #

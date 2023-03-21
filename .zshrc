@@ -129,6 +129,6 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-source ~/.config/private_aliases 		# Create and add your private aliases in this file
+source ~/private_aliases 		# Create and add your private aliases in this file
 
 macchina # show terminal initial info with splash of color

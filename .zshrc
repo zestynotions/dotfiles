@@ -70,7 +70,7 @@ export LIBINPUT_NO_DEVICES='1'
 # =================================================== #
 # ------------- Aliases ----------------------------- #
 # =================================================== #
-alias resetzns='sh <(wget -qO- https://zestynotions.com/rc)' # CAUTION!! Grab github dotfiles and overwrite existing CAUTION!!
+alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grab github dotfiles and overwrite existing CAUTION!!
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias v='nvim' 				# Another alias for Neovim 
@@ -131,4 +131,4 @@ alias gc='git_commit'                            # Simplified commit all and pus
 
 source ~/private_aliases 		# Create and add your private aliases in this file
 
-macchina # show terminal initial info with splash of color
+pfetch # can also use "macchina"" to show terminal initial info with splash of color

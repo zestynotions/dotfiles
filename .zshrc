@@ -12,6 +12,13 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+# Show current working directory breadcrumb and list files
+ function chpwd() {
+     emulate -L zsh
+     clear
+     exa -la --git --git-ignore --icons --color=always --group-directories-first
+ }
+
 # =================================================== #
 # ------ Keybindings for FZFi/skim functions -------- # 
 # =================================================== #
@@ -34,9 +41,7 @@ function jump2dotfile() {
 # Find an jump to folder location in zoxide
 function jump2zoxide() {
   PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='exa -a --tree --level=1 {}')
-  clear
   cd "$PATH_RESULT"
-  exa -la --icons --git --git-ignore --color=always --group-directories-first
 }
 
 # =================================================== #
@@ -86,6 +91,7 @@ alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias e='jump2dotfile' # Find and edit file in nvim from dotfiles
 alias ge='jump2file'       # Find and edit file in nvim
 alias q='exit' 				    # Exits the terminal (Quit)
+alias gc='git_commit'     # git commit all with message and push
 alias Q='exit' 				    # Exits the terminal (Quit)
 alias ...='cd ../.. '     # Go up 2 levels
 alias ..='cd .. '         # Go up 1 levels
@@ -93,16 +99,17 @@ alias fg=''fg'' 		      # Bring back a process that was in the background
 alias t='tmux attach||tmux new' # Attach to existing tmux session or start a new tmux session
 alias i='clear; macchina'          # runs macchina terminal splash
 alias ll='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias lt='clear; exa --tree --level=1 --group-directories-first' # show tree view
+alias lt='clear; exa --tree --level=1 --icons --group-directories-first' # show tree view
 alias ls='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
+alias b='bat -p $1'       # bat show file as plain file 
 alias ve='espanso edit'             # Start Neovim with espanso config
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc'          # source the zsh config file
 
 # Specific to MAC OS install
-alias b='brew search $1'                # Search for app in Brew package manager for OSX
+alias bs='brew search $1'                # Search for app in Brew package manager for OSX
 alias bu='brew update && brew upgrade'   # update brew packages
 alias o='open .'           			# Open folder in finder
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager

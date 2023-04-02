@@ -1,8 +1,8 @@
 #!/bin/sh
-# =================================
-# Git bare repo commit+push for GIT
-# =================================
+# ==================================
+# = Git repo commit + push for GIT =
+# ==================================
 
-read -ep "Type GIT Commit Message: ";
-/usr/bin/git commit -am "${REPLY}" 
-/usr/bin/git push 
+read -ep "Type GIT Commit Message: "
+/usr/bin/git commit -am "${REPLY}"
+/usr/bin/git push

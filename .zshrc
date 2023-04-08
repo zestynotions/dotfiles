@@ -114,7 +114,7 @@ alias sv='brew services restart yabai'  # Restart the Yabai tiling window manage
 alias ek='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias uu='update_apps'                  # uu vim --> will install vim on debian, arch, alpine and mac
-alias rb='reboot_system'                # Will reboot the system 
+alias rb='reboot_sys'                # Will reboot the system 
 alias ip="ifconfig | grep 'inet '"      # Show ip address 
 
 # =================================================== #

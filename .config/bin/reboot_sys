@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-reboot_system() {
+reboot_sys() {
 	# Check if the system is Arch Linux
 	if [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Arch Linux\"") -gt 0 ]]; then
 		sudo systemctl reboot

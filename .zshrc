@@ -108,19 +108,14 @@ alias ve='espanso edit'             # Start Neovim with espanso config
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc'          # source the zsh config file
 
-# Specific to MAC OS install
-alias bs='brew search $1'                # Search for app in Brew package manager for OSX
-alias bu='brew update && brew upgrade'   # update brew packages
+# --------- Pracical stuff ----------------
 alias o='open .'           			# Open folder in finder
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
-alias ipr="ifconfig|grep 'inet '|awk '{print $2}'" # get MAC IP adress
 alias ek='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
-
-# Aliasses Linux Specific
-alias xu='sudo pacman -Syu'
-alias sd='sudo shutdown -h now'
-alias ip='ip -4 -o a | cut -d ' ' -f 2,7 | cut -d '/' -f 1'
+alias uu='update_apps'                  # uu vim --> will install vim on debian, arch, alpine and mac
+alias rb='reboot_system'                # Will reboot the system 
+alias ip="ifconfig | grep 'inet '"      # Show ip address 
 
 # =================================================== #
 # ----------------- Git .config magic --------------- #

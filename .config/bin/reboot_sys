@@ -1,0 +1,22 @@
+#!/bin/bash
+
+reboot_system() {
+	# Check if the system is Arch Linux
+	if [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Arch Linux\"") -gt 0 ]]; then
+		sudo systemctl reboot
+	# Check if the system is Alpine Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Alpine Linux\"") -gt 0 ]]; then
+		doas reboot
+	# Check if the system is Debian Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Debian GNU/Linux\"") -gt 0 ]]; then
+		sudo reboot
+	# Check if the system is macOS
+	elif [[ $(uname) == "Darwin" ]]; then
+		sudo shutdown -r now
+	else
+		echo "Unsupported operating system"
+		return 1
+	fi
+
+	echo "System is rebooting..."
+}

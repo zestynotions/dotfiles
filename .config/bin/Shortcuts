@@ -7,8 +7,9 @@ alias ..='cd .. '         # Go up 1 levels
 alias Q='exit' 				    # Exits the terminal (Quit)
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias a='show_shortcuts' # List all aliases
-alias b='brew search $1'                # Search for app in Brew package manager for OSX
+alias b='bat -p $1'       # bat show file as plain file 
 alias bat='bat -p'        # bat -> bat -plain files
+alias bs='brew search $1'                # Search for app in Brew package manager for OSX
 alias bu='brew update && brew upgrade'   # update brew packages
 alias cat='bat -p'        # cat -> bat
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles
@@ -22,6 +23,7 @@ alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias fg=''fg'' 		      # Bring back a process that was in the background
 alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
 alias gc='git_commit'                            # Simplified commit all and push for dotfiles 
+alias gc='git_commit'     # git commit all with message and push
 alias ge='jump2file'       # Find and edit file in nvim
 alias gj='jump2folder'       # script for jumping between folder
 alias i='clear; macchina'          # runs macchina terminal splash
@@ -30,13 +32,13 @@ alias ipr="ifconfig|grep 'inet '|awk '{print $2}'" # get MAC IP adress
 alias j='jump2zoxide'     # script for jumping between folders from zoxide
 alias ll='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias ls='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias lt='clear; exa --tree --level=1 --group-directories-first' # show tree view
+alias lt='clear; exa --tree --level=1 --icons --group-directories-first' # show tree view
 alias n='notetaker'       # script for taking notes
 alias o='open .'           			# Open folder in finder
 alias p='clear; ping -c 3 google.com' # ping google 3 timers and exit
 alias q='exit' 				    # Exits the terminal (Quit)
 alias qq='search_and_kill' # search_and_kill process
-alias resetzns='sh <(wget -qO- https://zestynotions.com/rc)' # CAUTION!! Grab github dotfiles and overwrite existing CAUTION!!
+alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grab github dotfiles and overwrite existing CAUTION!!
 alias sd='sudo shutdown -h now'
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias sz='source ~/.zshrc'          # source the zsh config file

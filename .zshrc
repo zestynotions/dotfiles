@@ -132,5 +132,8 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # =================================================== #
 
 source ~/private_aliases 		# Create and add your private aliases in this file
+source ~/.config/bin/reboot_sys
+source ~/.config/bin/update_apps
+
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

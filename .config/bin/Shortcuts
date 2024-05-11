@@ -1,51 +1,60 @@
 #!/bin/sh
-# =============================================
-# ======== zsh shortcuts ======================
-# =============================================
-alias ...='cd ../.. '     # Go up 2 levels
-alias ..='cd .. '         # Go up 1 levels
-alias Q='exit' 				    # Exits the terminal (Quit)
-alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
+# ===================================================================
+# ===================== Alias ZSH shortcuts =========================
+# ===================================================================
 alias a='show_shortcuts' # List all aliases
-alias b='bat -p $1'       # bat show file as plain file 
+alias b='bat -p $1'       # bat show file as plain file
 alias bat='bat -p'        # bat -> bat -plain files
-alias bs='brew search $1'                # Search for app in Brew package manager for OSX
-alias bu='brew update && brew upgrade'   # update brew packages
 alias cat='bat -p'        # cat -> bat
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles
-alias cfgc='cfg_commit'                            # Simplified commit all and push for dotfiles 
+alias cfgc='cfg_commit'                            # Simplified commit all and push for dotfiles
 alias cfgl='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline' # show git log in one line for the dotfiles
-alias cs='cht.sh $1' 	# Cheatsheet for man page alternative. e.g. "cs rsync" 
 alias du='duf'        # show mounts and disk usage
-alias e='jump2dotfile' # Find and edit file in nvim from dotfiles
-alias ek='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
-alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
+alias e='yazi'               # Rust based ranger clone
 alias fg=''fg'' 		      # Bring back a process that was in the background
-alias fn='searchnotes'    # Jump to Icloud Note folder and open nvim
-alias gc='git_commit'                            # Simplified commit all and push for dotfiles 
+alias fn='findnotes'    # Jump to Icloud Note folder and open nvim
+alias fp='search_and_kill' # find_and_kill process
+alias gc='git_commit'                            # Simplified commit all and push for dotfiles
 alias gc='git_commit'     # git commit all with message and push
-alias ge='jump2file'       # Find and edit file in nvim
-alias gj='jump2folder'       # script for jumping between folder
+alias help='show_shortcuts' # List all aliases
 alias i='clear; macchina'          # runs macchina terminal splash
-alias ip='ip -4 -o a | cut -d ' ' -f 2,7 | cut -d '/' -f 1'
-alias ipr="ifconfig|grep 'inet '|awk '{print $2}'" # get MAC IP adress
-alias j='jump2zoxide'     # script for jumping between folders from zoxide
-alias ll='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias ls='clear; exa -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias lt='clear; exa --tree --level=1 --icons --group-directories-first' # show tree view
-alias n='notetaker'       # script for taking notes
+alias ip="ifconfig | grep 'inet '"      # Show ip address
+alias j='jump2zoxide'     # script for jumping between folders from zoxide, ctrl+j also works
+alias k='cd .. '         # Go up 1 levels
+alias kk='cd ../.. '     # Go up 2 levels
+alias ll='clear; eza -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
+alias lt='clear; eza --tree --level=1 --icons --group-directories-first' # show tree view
+alias n='notetaker'       # script for taking notes and add to obsidian vault
 alias o='open .'           			# Open folder in finder
-alias p='clear; ping -c 3 google.com' # ping google 3 timers and exit
+alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
+alias Q='exit' 				    # Exits the terminal (Quit)
 alias q='exit' 				    # Exits the terminal (Quit)
-alias qq='search_and_kill' # search_and_kill process
-alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grab github dotfiles and overwrite existing CAUTION!!
-alias sd='sudo shutdown -h now'
+alias rb='reboot_sys'                # Will reboot the system
+alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias sz='source ~/.zshrc'          # source the zsh config file
 alias t='tmux attach||tmux new' # Attach to existing tmux session or start a new tmux session
-alias v='nvim' 				# Another alias for Neovim 
+alias uu='update_apps'                  # uu vim --> will install vim on debian, arch, alpine and mac
+alias v='nvim' 				# Another alias for Neovim
+alias vd='jump2dotfile' # Find and edit file in nvim from dotfiles
 alias ve='espanso edit'             # Start Neovim with espanso config
 alias vim='nvim' 			# Another alias for Neovim
+alias vk='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
+alias vy='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
-alias xu='sudo pacman -Syu'
- 
+alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
+# ===============================================================
+# ===================== Private Shortcuts =======================
+# ===============================================================
+alias alp='clear; ssh zns@10.0.0.199'      # ssh to Alpine Server
+alias btc='curl rate.sx/btc@1w' # Get latest BitCoin rate
+alias cdic='cd $icloudFolder' #cd to iCloud
+alias jdev='ssh chissoku@45.35.64.152'     # ssh to JIC dev server
+alias mac2vps='rsync -urvhP --exclude-from=$HOME/.config/rsync_exclude --delete-after $icloud_path $www_path' # rsync Mac www to the vps www folder
+alias nas='clear; ssh zns@10.0.0.50'       # ssh to NAS
+alias rd='rsync -urvhP ~/.config zns@10.0.0.50:~/rsync/'     # rsync existing folder contents to VPS server
+alias rs='rsync -urvhP $1 zns@103.125.216.120:~/rsync/'     # rsync existing folder contents to VPS server
+alias vps2mac='rsync -urvhP --delete-after $www_path $icloud_path' # rsync vps www to the Mac www folder
+alias vps='clear; ssh zns@103.125.216.120' # ssh to VPS
+# =============================================

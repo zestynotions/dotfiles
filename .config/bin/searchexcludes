@@ -1,5 +1,8 @@
 .git
 .cfg
+.vim
+.npm
+.terminfo
 .local
 .cache
 .cargo
@@ -10,6 +13,7 @@ Pictures
 Movies
 Music
 Applications
-private
+Private
+Public
 System
 

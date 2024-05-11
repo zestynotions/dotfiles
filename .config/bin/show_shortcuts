@@ -2,12 +2,22 @@
 
 # Collect, sort and mark section for zsh shortcuts
 echo '#!/bin/sh' >~/.config/bin/Shortcuts
-echo '# =============================================' >>~/.config/bin/Shortcuts
-echo '# ======== zsh shortcuts ======================' >>~/.config/bin/Shortcuts
-echo '# =============================================' >>~/.config/bin/Shortcuts
-grep 'alias ' ~/.zshrc | sort >>~/.config/bin/Shortcuts
+echo '# ===================================================================' >>~/.config/bin/Shortcuts
+echo '# ===================== Alias ZSH shortcuts =========================' >>~/.config/bin/Shortcuts
+echo '# ===================================================================' >>~/.config/bin/Shortcuts
+grep 'alias ' ~/.zshrc | Sort -f >>~/.config/bin/Shortcuts
 
-echo ' ' >>~/.config/bin/Shortcuts
+if [ -f ~/private_aliases ]; then
+    echo '# ===============================================================' >>~/.config/bin/Shortcuts
+    echo '# ===================== Private Shortcuts =======================' >>~/.config/bin/Shortcuts
+    echo '# ===============================================================' >>~/.config/bin/Shortcuts
+    grep 'alias ' ~/private_aliases | Sort -f >>~/.config/bin/Shortcuts
+else
+    echo "No private_aliases file found in usr root"
+fi
+
+echo '# =============================================' >>~/.config/bin/Shortcuts
 
 # Display all the shortcuts in Bat with colors
-bat ~/.config/bin/Shortcuts
+bat -p  ~/.config/bin/Shortcuts
+exit 1

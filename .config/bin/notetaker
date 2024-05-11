@@ -6,7 +6,7 @@ noteFilename="$noteFolder/$(date +%Y-%m-%d).md"
 cd $noteFolder
 
 if [ ! -f $noteFilename ]; then
-  echo "#### Notes for $(date +%Y-%m-%d)" > $noteFilename
+  echo "---\ntags: DailyNotes\n---\n#### Notes for $(date +%Y-%m-%d)" > $noteFilename
 fi
 
 nvim -c "norm Go" \

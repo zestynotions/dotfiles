@@ -15,10 +15,10 @@ matches:
     replace: ©
   - trigger: ":nnode"
     replace: ♪
+  - trigger: ":cc"
+    replace: °C
   - trigger: ":ttm"
     replace: ™
-  - trigger: ":ip"
-    replace: "ifconfig|grep 'inet ' \n "
   - trigger: ":TT"
     replace: Thank you
   - trigger: ":shell"
@@ -39,7 +39,7 @@ matches:
   - trigger: include newlines
     replace: |
       exactly as you see
-      will appear these three
+      日本語が含まれてる政府が一番遅いかも知りません。will appear these three
       lines of poetry
   - trigger: ":div"
     replace: "<div>$|$</div>"

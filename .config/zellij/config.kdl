@@ -296,4 +296,4 @@ layout_dir "~/.$HOME/.config/layouts"
 
 // The folder in which Zellij will look for themes
 //
-theme_dir "~/.$HOME/.config/themes"
+//theme_dir "~/.$HOME/.config/themes"

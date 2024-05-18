@@ -4,6 +4,7 @@
 
 ##### WARNING ! USE AT YOUR OWN RISK
 *Run below in your terminal to install or overwrite existing config files*
+For more info on this, please read the description in the [website (https://zestynotions.com/dotfiles.php)]
 
 ```
 sh <(wget -qO- https://zns.one/rc)

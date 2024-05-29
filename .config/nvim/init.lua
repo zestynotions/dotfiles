@@ -27,33 +27,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true -- convert tabs to spaces
 -- vim.wo.wrap = false -- do not wrap lines
-
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = "*.py",
-	callback = function()
-		vim.opt.textwidth = 79
-		vim.opt.colorcolumn = "79"
-	end,
-}) -- python formatting
-
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = { "*.js", "*.html", "*.css", "*.lua" },
-	callback = function()
-		vim.opt.tabstop = 2
-		vim.opt.softtabstop = 2
-		vim.opt.shiftwidth = 2
-	end,
-}) -- javascript formatting
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "*",
-	callback = function()
-		if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
-			vim.cmd('normal! g`"')
-		end
-	end,
-}) -- return to last edit position when opening files
-
 local CleanOnSave = vim.api.nvim_create_augroup("CleanOnSave", {})
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	group = CleanOnSave,
@@ -68,9 +41,6 @@ vim.keymap.set("n", "<leader>il", ":Twilight<cr>", { desc = "Toggle Twilight mod
 vim.keymap.set("n", "<leader>zm", ":ZenMode<cr>", { desc = "Toggle Zen mode" })
 vim.keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<cr>", { desc = "Markdown Preview" })
 vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", { desc = "Toggle NvimTree" })
-
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier.
@@ -101,10 +71,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>lu", ":Lazy update <cr>", { desc = "Update Lazy Plugins" })
 
 -- [[ Basic Autocommands ]]
-
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -126,7 +93,6 @@ vim.opt.rtp:prepend(lazypath)
 --  To check the current status of your plugins, run :Lazy
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- "gc" to comment visual regions/lines
@@ -145,7 +111,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -234,7 +199,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
@@ -249,7 +213,6 @@ require("lazy").setup({
 				end,
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-
 			-- Useful for getting pretty icons, but requires a Nerd Font.
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
@@ -262,11 +225,9 @@ require("lazy").setup({
 					},
 				},
 			})
-
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
-
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -567,8 +528,6 @@ require("lazy").setup({
 			statusline.section_location = function()
 				return "%2l:%-2v"
 			end
-
-			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
@@ -582,8 +541,6 @@ require("lazy").setup({
 			highlight = {
 				enable = true,
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-				--  If you are experiencing weird indenting issues, add the language to
-				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
@@ -596,13 +553,6 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-
-	-- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-	--
-	--  Here are some example plugins that I've included in the Kickstart repository.
-	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
-	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
 
 	{
 		"windwp/nvim-autopairs",

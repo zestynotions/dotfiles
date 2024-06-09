@@ -50,6 +50,7 @@ alias ZZ=''           # Error handling for when exititing nvim times 2 by mistak
 alias alp='clear; ssh zns@10.0.0.199'      # ssh to Alpine Server
 alias btc='curl rate.sx/btc@1w' # Get latest BitCoin rate
 alias cdic='cd $icloudFolder' #cd to iCloud
+alias ee='encode.sh'
 alias jdev='ssh chissoku@45.35.64.152'     # ssh to JIC dev server
 alias mac2vps='rsync -urvhP --exclude-from=$HOME/.config/rsync_exclude --delete-after $icloud_path $www_path' # rsync Mac www to the vps www folder
 alias nas='clear; ssh zns@10.0.0.50'       # ssh to NAS

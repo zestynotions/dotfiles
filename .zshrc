@@ -63,11 +63,6 @@ export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 source "$HOME/.cargo/env" # added for Rust integration
-source <(fzf --zsh)
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
 
 # =================================================== #
 # ====== Needed for Sway Tiling Window Manager ====== #
@@ -113,8 +108,9 @@ alias sz='source ~/.zshrc'          # source the zsh config file
 
 # --------- Pracical stuff ----------------
 alias e='yazi'               # Rust based ranger clone
-alias uu='update_apps'                  # uu vim --> will install vim on debian, arch, alpine and mac
-alias rb='reboot_sys'                # Will reboot the system
+alias uu='update_apps'       # uu vim --> will updatre all apps on debian, arch, alpine and mac
+alias ii='install_apps'      # ii vim --> will install vim on debian, arch, alpine and mac
+alias rb='reboot_sys'        # Will reboot the system
 alias ip="ifconfig | grep 'inet '"      # Show ip address
 
 # --------- MAC OS brew Pracical stuff ----------------
@@ -138,8 +134,7 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # =================================================== #
 
 source ~/private_aliases 		# Create and add your private aliases in this file
-source ~/.config/bin/reboot_sys
-source ~/.config/bin/update_apps
+source ~/.config/bin/sysmanage
 
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

@@ -1,0 +1,87 @@
+#!/bin/sh
+
+install_apps() {
+	local app_name=$1
+	local package_manager
+
+	# Check if the system is Arch Linux
+	if [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Arch Linux\"") -gt 0 ]]; then
+		package_manager="pacman"
+	# Check if the system is Alpine Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Alpine Linux\"") -gt 0 ]]; then
+		package_manager="apk"
+	# Check if the system is Debian Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Debian GNU/Linux\"") -gt 0 ]]; then
+		package_manager="apt-get"
+	# Check if the system is macOS
+	elif [[ $(uname) == "Darwin" ]]; then
+		package_manager="brew"
+	else
+		echo "Unsupported operating system"
+		return 1
+	fi
+
+	# Install the app using the appropriate package manager
+	echo "Installing $app_name using $package_manager"
+	if [[ $package_manager == "pacman" ]]; then
+		sudo $package_manager -S $app_name
+	elif [[ $package_manager == "apk" ]]; then
+		doas $package_manager add $app_name
+	elif [[ $package_manager == "apt-get" ]]; then
+		sudo $package_manager install $app_name
+	elif [[ $package_manager == "brew" ]]; then
+		brew install $app_name
+	fi
+}
+
+reboot_sys() {
+	# Check if the system is Arch Linux
+	if [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Arch Linux\"") -gt 0 ]]; then
+		sudo systemctl reboot
+	# Check if the system is Alpine Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Alpine Linux\"") -gt 0 ]]; then
+		doas reboot
+	# Check if the system is Debian Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Debian GNU/Linux\"") -gt 0 ]]; then
+		sudo reboot
+	# Check if the system is macOS
+	elif [[ $(uname) == "Darwin" ]]; then
+		sudo shutdown -r now
+	else
+		echo "Unsupported operating system"
+		return 1
+	fi
+
+	echo "System is rebooting..."
+}
+
+
+update_apps() {
+	local package_manager
+
+	# Check if the system is Arch Linux
+	if [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Arch Linux\"") -gt 0 ]]; then
+		package_manager="pacman"
+		sudo $package_manager -Syu --noconfirm
+	# Check if the system is Alpine Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Alpine Linux\"") -gt 0 ]]; then
+		package_manager="apk"
+		doas $package_manager update
+		doas $package_manager upgrade
+	# Check if the system is Debian Linux
+	elif [[ $(cat /etc/os-release 2>/dev/null | grep -c "NAME=\"Debian GNU/Linux\"") -gt 0 ]]; then
+		package_manager="apt-get"
+		sudo $package_manager update
+		sudo $package_manager upgrade
+	# Check if the system is macOS
+	elif [[ $(uname) == "Darwin" ]]; then
+		package_manager="brew"
+		brew update
+		brew upgrade
+	else
+		echo "Unsupported operating system"
+		return 1
+	fi
+
+	echo "All applications have been updated using $package_manager"
+}

@@ -48,7 +48,7 @@ function jump2zoxide() {
 # ============ Find_and_kill process ================ #
 # =================================================== #
 
-function find_and_kill() {
+function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 }
 
@@ -66,6 +66,7 @@ source "$HOME/.cargo/env" # added for Rust integration
 
 # =================================================== #
 # ====== Needed for Sway Tiling Window Manager ====== #
+# ========= Only needed for if you use Linyx ======== #
 # =================================================== #
 export XDG_RUNTIME_DIR='/tmp'
 export WLR_NO_HARDWARE_CURSORS='1'

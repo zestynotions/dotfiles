@@ -12,12 +12,9 @@ if [ -f ~/private_aliases ]; then
     echo '# ===================== Private Shortcuts =======================' >>~/.config/bin/Shortcuts
     echo '# ===============================================================' >>~/.config/bin/Shortcuts
     grep 'alias ' ~/private_aliases | Sort -f >>~/.config/bin/Shortcuts
-else
-    echo "No private_aliases file found in usr root"
+
 fi
-
 echo '# =============================================' >>~/.config/bin/Shortcuts
-
 # Display all the shortcuts in Bat with colors
 bat -p  ~/.config/bin/Shortcuts
 exit 1

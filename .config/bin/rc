@@ -3,10 +3,10 @@
 # Install script for my dotfiles
 # This will reset/overwrite existing dotfiles with the newest from github
 #
-echo -e "\e[1;32m ====================================================================== \e[0m "
+echo -e "\e[1;32m =========================================================================== \e[0m "
 echo " =========== Would you like to install zns dotfiles? (Y or N) ============"
 echo " =========== This will overwrite existig zsh and .config files ==========="
-echo -e "\e[1;32m ====================================================================== \e[0m "
+echo -e "\e[1;32m =========================================================================== \e[0m "
 
 read startinstall
 # now check if $startinstall is "y"
@@ -27,9 +27,10 @@ if [ "$startinstall" = "y" ]; then
 	mv -f $HOME/dotfiles/.zshenv $HOME/.zshenv
 	rm -rf $HOME/dotfiles
 	rm -r $HOME/rc
-    source ~/.zshrc
 
 fi
+
+source ~/.zshrc
 
 echo ==========================================================================
 echo -e "\e[1;32m All done! Enjoy :) \e[0m"

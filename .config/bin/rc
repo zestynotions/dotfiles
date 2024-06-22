@@ -3,10 +3,10 @@
 # Install script for my dotfiles
 # This will reset/overwrite existing dotfiles with the newest from github
 #
-echo -e "\e[1;32m =========================================================================== \e[0m "
+echo -e "\e[1;32m ============================================================================= \e[0m "
 echo " =========== Would you like to install zns dotfiles? (Y or N) ============"
 echo " =========== This will overwrite existig zsh and .config files ==========="
-echo -e "\e[1;32m =========================================================================== \e[0m "
+echo -e "\e[1;32m ============================================================================= \e[0m "
 
 read startinstall
 # now check if $startinstall is "y"
@@ -16,17 +16,17 @@ if [ "$startinstall" = "y" ]; then
 	echo "===== Retrieving dotfiles from github ====="
 	echo "==========================================="
 
-	cd $HOME
+	cd ~/
 	git clone --depth=1 https://github.com/zestynotions/dotfiles.git
-	chown $USER -R $HOME/dotfiles
-	chmod -R 777 $HOME/dotfiles
+	chown $USER -R ~/dotfiles
+	chmod -R 777 ~/dotfiles
 
-	rm -rf $HOME/.config
-	mv -f $HOME/dotfiles/.config $HOME/
-	mv -f $HOME/dotfiles/.zshrc $HOME/.zshrc
-	mv -f $HOME/dotfiles/.zshenv $HOME/.zshenv
-	rm -rf $HOME/dotfiles
-	rm -r $HOME/rc
+	rm -rf ~/.config
+	mv -f ~/dotfiles/.config ~/
+	mv -f ~/dotfiles/.zshrc ~/.zshrc
+	mv -f ~/dotfiles/.zshenv ~/.zshenv
+	rm -rf ~/dotfiles
+	rm -r ~/rc
 
 fi
 

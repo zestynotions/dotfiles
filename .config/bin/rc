@@ -26,7 +26,6 @@ if [ "$startinstall" = "y" ]; then
 	mv -f ~/dotfiles/.zshrc ~/.zshrc
 	mv -f ~/dotfiles/.zshenv ~/.zshenv
 	rm -rf ~/dotfiles
-	rm -r ~/rc
 
 fi
 

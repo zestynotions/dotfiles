@@ -1,7 +1,9 @@
-#!/bin/sh
-# ===================================================================
-# ===================== Alias ZSH shortcuts =========================
-# ===================================================================
+= # ==================================================================
+# ## Alias ZSH shortcuts
+= # ==================================================================
+# Ctrl + e = search and edit file
+# Ctrl + j = search and cd to folder
+# Ctrl + r = search history with fzf
 alias a='show_shortcuts' # List all aliases
 alias b='bat -p $1'       # bat show file as plain file
 alias bat='bat -p'        # bat -> bat -plain files
@@ -45,9 +47,11 @@ alias vk='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias vy='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
-# ===============================================================
-# ===================== Private Shortcuts =======================
-# ===============================================================
+bindkey ^e jump2dotfile # search file and edit.
+bindkey ^j jump2zoxide # search folder and cd.
+= # ==============================================================
+# ## Private Shortcuts 
+= # ==============================================================
 alias alp='clear; ssh zns@10.0.0.199'      # ssh to Alpine Server
 alias btc='curl rate.sx/btc@1w' # Get latest BitCoin rate
 alias cdic='cd $icloudFolder' #cd to iCloud
@@ -59,4 +63,4 @@ alias rd='rsync -urvhP ~/.config zns@10.0.0.50:~/rsync/'     # rsync existing fo
 alias rs='rsync -urvhP $1 zns@103.125.216.120:~/rsync/'     # rsync existing folder contents to VPS server
 alias vps2mac='rsync -urvhP --delete-after $www_path $icloud_path' # rsync vps www to the Mac www folder
 alias vps='clear; ssh zns@103.125.216.120' # ssh to VPS
-# =============================================
+= # ============================= END ================================

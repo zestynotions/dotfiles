@@ -23,12 +23,16 @@ eval "$(zoxide init zsh)"
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
-bindkey ^e jump2dotfile # Ctrl + e = search file and edit.
+bindkey ^e jump2dotfile # search file and edit.
 zle -N jump2dotfile{,}
 
-bindkey ^j jump2zoxide # Ctrl + j = search folder and cd.
+bindkey ^j jump2zoxide # search folder and cd.
 zle -N jump2zoxide{,}
 
+# Ctrl + r = search history with fzf
+# Ctrl + e = search and edit file
+# Ctrl + j = search and cd to folder
+#
 # =================================================== #
 # ---------- search/edit/jump focused --------------- #
 # =================================================== #

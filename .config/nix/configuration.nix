@@ -1,3 +1,6 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 { config, pkgs, ... }:
 
 {
@@ -6,98 +9,117 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  hardware.video.hidpi.enable = true;
+
+  # enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.opengl.driSupport.enable = true;
-# hardware.enableAllFirmware = true;
-# boot.kernelParams = [ "nomodeset" ];
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
-  networking.useDHCP = false;
-  networking.interfaces.ens33.useDHCP = true;
+
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-   console = {
-     font = "Lat2-Terminus16";
-     keyMap = "us";
-   };
 
-users.users.zns = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ "wheel" "sway" "video"];
-   };
-
-
-fonts.fonts = with pkgs; [
-     fira-code
-     fira-code-symbols
-     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-];
-
-
-virtualisation.vmware.guest.enable = true;
-xdg.portal.wlr.enable = true;
-programs.sway.enable = true;
-
-{config, pkgs, ...}: let
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-in {
-  imports = [
-    hyprland.nixosModules.default
-  ];
-  
-  programs.hyprland = {
-    enable = true;
-    package = hyprland.packages.${pkgs.system}.default;
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
-}
 
-   nixpkgs.config.allowUnfree = true;
-   nixpkgs.overlays = [
-	(import (builtins.fetchTarball {
-	url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-	}))
-   ];
+  # Configure keymap in X11
+  # services.xserver = {
+  #  layout = "us";
+  #  xkbVariant = "";
+  # };
 
-   environment.systemPackages = with pkgs; [
-     neovim
-     git
-     curl
-     swaylock
-     swayidle
-     wl-clipboard
-     xwayland
-     rsync
-     killall
-     gcc
-     foot
-     imv
-     tmux
-     bat
-     exa
-     broot
-     zsh
-     duf
-     htop
-     gotop
-     pfetch
-     open-vm-tools
-     lf
-     alacritty
-     wofi
-     wget
-   ];
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.zns = {
+    isNormalUser = true;
+    description = "zns";
+    shell = pkgs.zsh;
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [];
+  };
+
+  # Enable automatic login for the user.
+  services.getty.autologinUser = "zns";
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  xdg.portal.wlr.enable = true;
+  programs.hyprland.enable = true;
+
+  # Fonts
+  fonts.packages = with pkgs; [
+  fira-code
+  jetbrains-mono
+  (nerdfonts.override { fonts = [ "FiraCode" ];})
+  ];
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+  fira-code-nerdfont
+  jetbrains-mono
+  wget
+  hyprpaper
+  git
+  bat
+  eza
+  gcc
+  skim
+  fd
+  neovim
+  starship
+  tmux
+  wl-clipboard
+  foot
+  imv
+  tofi
+  zsh
+  zoxide
+  duf
+  htop
+  btop
+  macchina
+  pfetch
+  yazi
+  ];
+
+
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

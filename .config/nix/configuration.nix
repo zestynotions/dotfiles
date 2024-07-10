@@ -81,7 +81,11 @@
   fira-code-nerdfont
   jetbrains-mono
   wget
+  xwayland
+  networkmanagerapplet
   hyprpaper
+  waybar
+  brave
   git
   bat
   eza
@@ -92,6 +96,7 @@
   starship
   tmux
   wl-clipboard
+  wezterm
   foot
   imv
   tofi
@@ -105,7 +110,11 @@
   yazi
   ];
 
-
+#  nix.gc = {
+#  automatic = true;
+#  dates = "weekly";
+#  options = "--delete-generations 5d";
+#  }
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

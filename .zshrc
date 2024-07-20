@@ -124,6 +124,11 @@ alias vk='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias vy='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias o='open .'           			# Open folder in finder
 
+# --------- NixOS Pracical stuff ----------------
+alias nc='sudo nix-collect-garbage --delete-older-than 10d sudo nixos-rebuild switch && sudo reboot'  # clean older packages rebuild and Restart
+alias ui='hyprland'
+alias sd='sudo shutdown -h now'
+
 # =================================================== #
 # ----------------- Git .config magic --------------- #
 # =================================================== #

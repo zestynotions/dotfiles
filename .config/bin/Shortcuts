@@ -29,15 +29,18 @@ alias ll='clear; eza -la --icons --git --git-ignore --color=always --group-direc
 alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias lt='clear; eza --tree --level=1 --icons --group-directories-first' # show tree view
 alias n='notetaker'       # script for taking notes and add to obsidian vault
+alias nc='sudo nix-collect-garbage --delete-older-than 10d sudo nixos-rebuild switch && sudo reboot'  # clean older packages rebuild and Restart
 alias o='open .'           			# Open folder in finder
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
 alias Q='exit' 				    # Exits the terminal (Quit)
 alias q='exit' 				    # Exits the terminal (Quit)
 alias rb='reboot_sys'        # Will reboot the system
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
+alias sd='sudo shutdown -h now'
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias sz='source ~/.zshrc'          # source the zsh config file
 alias t='tmux attach||tmux new' # Attach to existing tmux session or start a new tmux session
+alias ui='hyprland'
 alias uu='update_apps'       # uu vim --> will updatre all apps on debian, arch, alpine and mac
 alias v='nvim' 				# Another alias for Neovim
 alias vd='jump2dotfile' # Find and edit file in nvim from dotfiles

@@ -6,7 +6,7 @@ return {
 	color_scheme = "Dracula (Official)",
 	--color_scheme = "Dracula+",
 	enable_tab_bar = false,
-	font_size = 14.0,
+	font_size = 16.0,
 	font = wezterm.font("JetBrains Mono"),
 	-- macos_window_background_blur = 40,
 	macos_window_background_blur = 10,

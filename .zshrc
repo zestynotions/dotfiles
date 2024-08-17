@@ -146,5 +146,14 @@ alias gc='git_commit'                            # Simplified commit all and pus
 source ~/private_aliases 		# Create and add your private aliases in this file
 source ~/.config/bin/sysmanage
 
+# Activate syntax highlighting
+source /opt/homebrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# Disable underline
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# Activate autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

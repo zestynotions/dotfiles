@@ -23,29 +23,31 @@ eval "$(zoxide init zsh)"
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
+# Ctrl + e = search and edit file
 bindkey ^e jump2dotfile # search file and edit.
 zle -N jump2dotfile{,}
-
-bindkey ^j jump2zoxide # search folder and cd.
-zle -N jump2zoxide{,}
-
-# Ctrl + r = search history with fzf
-# Ctrl + e = search and edit file
-# Ctrl + j = search and cd to folder
-#
-# =================================================== #
-# ---------- search/edit/jump focused --------------- #
-# =================================================== #
-
-# Find and edit a textfile using nvim from dotfiles
 function jump2dotfile() {
-  fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=90% --margin=5% --border --prompt='Edit:' --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
+ cd ~/.config/
+ nvim -c "lua require('telescope.builtin').find_files()"
+ #fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=90% --margin=5% --border --prompt='Edit:' --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
 }
 
-# Find an jump to folder location in zoxide
+# Ctrl + j = search and cd to folder
+bindkey ^j jump2zoxide # search folder and cd.
+zle -N jump2zoxide{,}
 function jump2zoxide() {
   PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --level=1 {}')
   cd "$PATH_RESULT"
+}
+
+# Ctrl + r = search history with fzf
+
+
+alias fe="find_edit"
+function find_edit() {
+  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --level=1 {}')
+  cd "$PATH_RESULT"
+  nvim -c "lua require('telescope.builtin').find_files()"
 }
 
 # =================================================== #

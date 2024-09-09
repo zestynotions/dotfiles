@@ -8,6 +8,7 @@ vim.opt.showmode = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.undofile = true
+vim.opt.conceallevel = 1
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"

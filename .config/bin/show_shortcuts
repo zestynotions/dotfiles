@@ -1,22 +1,12 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Collect, sort and mark section for zsh shortcuts
-
-echo '= # ==================================================================' >~/.config/bin/Shortcuts
-echo '# ## Alias ZSH shortcuts' >>~/.config/bin/Shortcuts
-echo '= # ==================================================================' >>~/.config/bin/Shortcuts
-
-grep -E 'alias |bindkey|Ctrl' ~/.zshrc | Sort -f >>~/.config/bin/Shortcuts
+echo '# Alias ZSH shortcuts' >~/.config/bin/Shortcuts.md
+echo '|**Alias**|**Description**|' >>~/.config/bin/Shortcuts.md
+echo '|-----|-----------|' >>~/.config/bin/Shortcuts.md
+grep 'alias' ~/.zshrc |cut -c 6- |sort|sed 's/^/|/'| sed 's/#/|/' >> ~/.config/bin/Shortcuts.md
 
 
-if [ -f ~/private_aliases ]; then
-    echo '= # ==============================================================' >>~/.config/bin/Shortcuts
-    echo '# ## Private Shortcuts ' >>~/.config/bin/Shortcuts
-    echo '= # ==============================================================' >>~/.config/bin/Shortcuts
-
-    grep 'alias' ~/private_aliases | Sort -f >>~/.config/bin/Shortcuts
-
-fi
-echo '= # ============================= END ================================' >>~/.config/bin/Shortcuts
-
-cut -d' ' -f2- ~/.config/bin/Shortcuts | bat -p -l md
+# Display all the shortcuts in Bat with colors
+glow -p -w 100 -s 'dark' ~/.config/bin/Shortcuts.md
+exit 1

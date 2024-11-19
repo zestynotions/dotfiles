@@ -19,6 +19,15 @@ eval "$(zoxide init zsh)"
      eza -la --git --git-ignore --icons --color=always --group-directories-first
  }
 
+# Start Yazi with a shell wrapper that provides the ability to change the current working directory when exiting Yazi.
+ function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 # =================================================== #
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
@@ -54,8 +63,22 @@ function find_edit() {
 # ============ Find_and_kill process ================ #
 # =================================================== #
 
+alias kp="search_and_kill"
 function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
+}
+
+# =================================================== #
+# ============ Make a backup of a file ============== #
+# =================================================== #
+
+alias bk="copy_rename_backup"
+function copy_rename_backup() {
+  if [ $# -eq 1 ]
+then
+ cp -pvi "$1" "${1}.bak"
+fi
+chpwd
 }
 
 # =================================================== #
@@ -145,10 +168,10 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-if [[ -f "~/private_aliases" ]]; then
-  source ~/private_aliases
+#if [[ -f "~/private_aliases" ]]; then
+source ~/private_aliases
   # Create and add your private aliases in this file
-fi
+#fi
 
 source ~/.config/bin/sysmanage
 

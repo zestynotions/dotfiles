@@ -54,22 +54,26 @@ shift + alt - f : yabai -m window --toggle zoom-fullscreen
 
 
 # send window to desktop and follow focus
-shift + ctrl - 1 : yabai -m window --space 1
-shift + ctrl - 2 : yabai -m window --space 2
-shift + ctrl - 3 : yabai -m window --space 3
-shift + ctrl - 4 : yabai -m window --space 4
-shift + ctrl - 5 : yabai -m window --space 5
-shift + ctrl - 6 : yabai -m window --space 6
+shift + alt - 1 : yabai -m window --space 1
+shift + alt - 2 : yabai -m window --space 2
+shift + alt - 3 : yabai -m window --space 3
+shift + alt - 4 : yabai -m window --space 4
+shift + alt - 5 : yabai -m window --space 5
+shift + alt - 6 : yabai -m window --space 6
 
 # NOTE: Moving between deskspaces is handled by ctrl + 1 in system settings that way you dont need to disable security.
 
+:: default : yabai -m config active_window_border_color 0xff775759
 
-# quict note
-alt - q : open -a Alacritty.app;\
-          yabai -m window --focus float;\
-          yabai -m window --grid 7:5:1:0:3:7;\
-          skhd --key "n"
+#.blacklist [
+#    "kitty"
+#    "terminal"
+#    "WezTerm"
+# ]
 
+# cmd - n [
+#    "kitty" : echo "hello"
+#]
 
 #------------------- Reminder ----------------------------------------
 #(rows) : (columns) : (x move) : (y move) : (row span) : (column span)

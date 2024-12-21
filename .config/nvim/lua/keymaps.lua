@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>il", ":Twilight<cr>", { desc = "Toggle Twilight mod
 vim.keymap.set("n", "<leader>zm", ":ZenMode<cr>", { desc = "Toggle Zen mode" })
 vim.keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<cr>", { desc = "Markdown Preview" })
 vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", { desc = "Toggle NvimTree" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier.
@@ -34,6 +35,8 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>lu", ":Lazy update <cr>", { desc = "Update Lazy Plugins" })
 
+vim.keymap.set("n", "<leader>cb", "^i- [ ] ", { desc = "Convert line to a checkbo" })
+
 -- [[ Basic Autocommands ]]
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -43,4 +46,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

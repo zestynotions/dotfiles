@@ -16,7 +16,7 @@ eval "$(zoxide init zsh)"
  function chpwd() {
      emulate -L zsh
      clear
-     eza -la --git --git-ignore --icons --color=always --group-directories-first
+     eza -la --git --git-ignore --icons=always --color=always --group-directories-first
  }
 
 # Start Yazi with a shell wrapper that provides the ability to change the current working directory when exiting Yazi.
@@ -45,7 +45,7 @@ function jump2dotfile() {
 bindkey ^j jump2zoxide # search folder and cd.
 zle -N jump2zoxide{,}
 function jump2zoxide() {
-  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --level=1 {}')
+  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
   cd "$PATH_RESULT"
 }
 
@@ -54,7 +54,7 @@ function jump2zoxide() {
 
 alias fe="find_edit"
 function find_edit() {
-  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --level=1 {}')
+  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
   cd "$PATH_RESULT"
   nvim -c "lua require('telescope.builtin').find_files()"
 }
@@ -112,6 +112,7 @@ alias vim='nvim' 			# Another alias for Neovim
 alias a='show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
+alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
 alias fp='search_and_kill' # find_and_kill process
 alias n='notetaker'       # script for taking notes and add to obsidian vault
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
@@ -132,6 +133,7 @@ alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-direc
 alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
 alias b='bat -p $1'       # bat show file as plain file
+# alias b='batcat -p $1'       # batcat if on debian system to show file as plain file
 alias ve='espanso edit'             # Start Neovim with espanso config
 alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc'          # source the zsh config file

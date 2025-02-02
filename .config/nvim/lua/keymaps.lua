@@ -23,16 +23,20 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 -- search for files in obsidian vault
 vim.keymap.set(
 	"n",
-	"<leader>of",
-	':Telescope find_files search_dirs={"/Users/zns/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zns"}<cr>',
-	{ desc = "Search files in the Obsidian vault" }
-)
-vim.keymap.set(
-	"n",
 	"<leader>og",
 	':Telescope live_grep search_dirs={"/Users/zns/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zns"}<cr>',
 	{ desc = "Grep through obsidian vault" }
 )
+
+vim.keymap.set("n", "<leader>ff", ":FzfLua files cwd=~/.config <cr>", { desc = "find files in .config dir" })
+
+vim.keymap.set(
+	"n",
+	"<leader>of",
+	":FzfLua files cwd=/Users/zns/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/zns <cr>",
+	{ desc = "Find files in Obsidian" }
+)
+
 vim.keymap.set("n", "<leader>lu", ":Lazy update <cr>", { desc = "Update Lazy Plugins" })
 
 vim.keymap.set("n", "<leader>cb", "^i- [ ] ", { desc = "Convert line to a checkbo" })

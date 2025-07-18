@@ -32,22 +32,21 @@ eval "$(zoxide init zsh)"
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
-# Ctrl + e = search and edit file
-bindkey ^e jump2dotfile # search file and edit.
-zle -N jump2dotfile{,}
-function jump2dotfile() {
- cd ~/.config/
- nvim -c "lua require('telescope.builtin').find_files()"
- #fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=90% --margin=5% --border --prompt='Edit:' --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
-}
+ bindkey ^e jump2dotfile # search file and edit.
+ zle -N jump2dotfile{,}
+ function jump2dotfile() {
+  cd ~/.config/
+  nvim -c "lua require('telescope.builtin').find_files()"
+  #fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=90% --margin=5% --border --prompt='Edit:' --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
+ }
 
 # Ctrl + j = search and cd to folder
-bindkey ^j jump2zoxide # search folder and cd.
-zle -N jump2zoxide{,}
-function jump2zoxide() {
-  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
-  cd "$PATH_RESULT"
-}
+ bindkey ^j jump2zoxide # search folder and cd.
+ zle -N jump2zoxide{,}
+ function jump2zoxide() {
+   PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
+   cd "$PATH_RESULT"
+ }
 
 # Ctrl + r = search history with fzf
 
@@ -105,16 +104,21 @@ export LIBINPUT_NO_DEVICES='1'
 # =================================================== #
 # ------------- Aliases ----------------------------- #
 # =================================================== #
+
+alias vx='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+alias ee='encode.sh'
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim
 alias a='show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
+alias c='clear'	      # Clear the terminal
 alias du='duf'        # show mounts and disk usage
 alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
 alias fp='search_and_kill' # find_and_kill process
-alias n='notetaker'       # script for taking notes and add to obsidian vault
+alias dn='daynotetaker'       # script for taking dailynotes and add to obsidian vault
+alias sn='solnotetaker'       # script for taking solitarynotes and add to obsidian vault
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
 alias j='jump2zoxide'     # script for jumping between folders from zoxide, ctrl+j also works
 alias fn='findnotes'    # Jump to Icloud Note folder and open nvim

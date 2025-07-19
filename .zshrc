@@ -32,37 +32,27 @@ eval "$(zoxide init zsh)"
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
- bindkey ^e jump2dotfile # search file and edit.
- zle -N jump2dotfile{,}
- function jump2dotfile() {
-  cd ~/.config/
-  nvim -c "lua require('telescope.builtin').find_files()"
-  #fd --type f --search-path ~/ --hidden --ignore-file ~/.config/bin/searchexcludes | sk --reverse --height=90% --margin=5% --border --prompt='Edit:' --color='16,border:135,spinner:208' --preview='bat {}'|xargs nvim
+ # search dotfile and edit.
+alias ed='editdotfile'
+function editdotfile() {
+  cd $HOME/.config
+  sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
  }
 
-# Ctrl + j = search and cd to folder
- bindkey ^j jump2zoxide # search folder and cd.
- zle -N jump2zoxide{,}
- function jump2zoxide() {
-   PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
+
+# search and cd to folder
+alias j='jump2zoxide'
+function jump2zoxide() {
+   PATH_RESULT=$(zoxide query -l|sk --reverse --margin=3% --prompt='Jump to directory: ' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
    cd "$PATH_RESULT"
  }
 
-# Ctrl + r = search history with fzf
-
-
-alias fe="find_edit"
-function find_edit() {
-  PATH_RESULT=$(zoxide query -l|sk --reverse --height=90% --margin=5% --border --prompt='Jump to: ' --color='16,border:135,spinner:208' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
-  cd "$PATH_RESULT"
-  nvim -c "lua require('telescope.builtin').find_files()"
-}
 
 # =================================================== #
 # ============ Find_and_kill process ================ #
 # =================================================== #
 
-alias kp="search_and_kill"
+alias kp='search_and_kill'
 function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 }
@@ -71,7 +61,7 @@ procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 # ============ Make a backup of a file ============== #
 # =================================================== #
 
-alias bk="copy_rename_backup"
+alias bk='copy_rename_backup'
 function copy_rename_backup() {
   if [ $# -eq 1 ]
 then
@@ -83,6 +73,7 @@ chpwd
 # =================================================== #
 # ------------- Defaults ---------------------------- #
 # =================================================== #
+
 export EDITOR='nvim'
 export BROWSER='brave'
 export TERMINAL='alacritty'
@@ -96,6 +87,7 @@ source "$HOME/.cargo/env" # added for Rust integration
 # ====== Needed for Sway Tiling Window Manager ====== #
 # ========= Only needed for if you use Linux ======== #
 # =================================================== #
+
 export XDG_RUNTIME_DIR='/tmp'
 export WLR_NO_HARDWARE_CURSORS='1'
 export LIBINPUT_NO_DEVICES='1'
@@ -106,7 +98,6 @@ export LIBINPUT_NO_DEVICES='1'
 # =================================================== #
 
 alias vx='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
-alias ee='encode.sh'
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias v='nvim' 				# Another alias for Neovim
@@ -120,9 +111,7 @@ alias fp='search_and_kill' # find_and_kill process
 alias dn='daynotetaker'       # script for taking dailynotes and add to obsidian vault
 alias sn='solnotetaker'       # script for taking solitarynotes and add to obsidian vault
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
-alias j='jump2zoxide'     # script for jumping between folders from zoxide, ctrl+j also works
 alias fn='findnotes'    # Jump to Icloud Note folder and open nvim
-alias vd='jump2dotfile' # Find and edit file in nvim from dotfiles
 alias q='exit' 				    # Exits the terminal (Quit)
 alias gc='git_commit'     # git commit all with message and push
 alias Q='exit' 				    # Exits the terminal (Quit)
@@ -137,10 +126,9 @@ alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-direc
 alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
 alias b='bat -p $1'       # bat show file as plain file
-# alias b='batcat -p $1'       # batcat if on debian system to show file as plain file
-alias ve='espanso edit'             # Start Neovim with espanso config
-alias vz='nvim ~/.zshrc' 		        # Edit zsh config (this file) in Neovim
-alias sz='source ~/.zshrc'          # source the zsh config file
+alias ve='espanso edit'   # Start Neovim with espanso config
+alias vz='nvim ~/.zshrc'  # Edit zsh config (this file) in Neovim
+alias sz='source ~/.zshrc' # source the zsh config file
 
 # --------- Pracical stuff ----------------
 alias e='yazi'               # Rust based ranger clone

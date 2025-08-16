@@ -164,3 +164,4 @@ ex=:\
 *.nix=:\
 "
 . "$HOME/.cargo/env"
+. "/Users/zns/.local/share/bob/env/env.sh"

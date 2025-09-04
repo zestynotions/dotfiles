@@ -97,6 +97,7 @@ export LIBINPUT_NO_DEVICES='1'
 # ------------- Aliases ----------------------------- #
 # =================================================== #
 
+alias e='yazi'               # Rust based file explorer
 alias vx='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
@@ -123,27 +124,24 @@ alias i='clear; macchina'          # runs macchina terminal splash
 alias ll='clear; eza -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
 alias lt='clear; eza --tree --level=1 --icons --group-directories-first' # show tree view
 alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-directories-first' 	# List all directory contents using exa
-alias cat='bat -p'        # cat -> bat
 alias bat='bat -p'        # bat -> bat -plain files
 alias b='bat -p $1'       # bat show file as plain file
-alias ve='espanso edit'   # Start Neovim with espanso config
-alias vz='nvim ~/.zshrc'  # Edit zsh config (this file) in Neovim
+alias ez='nvim ~/.zshrc'  # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc' # source the zsh config file
-
-# --------- Pracical stuff ----------------
-alias e='yazi'               # Rust based ranger clone
-alias uu='update_apps'       # uu vim --> will updatre all apps on debian, arch, alpine and mac
-alias ii='install_apps'      # ii vim --> will install vim on debian, arch, alpine and mac
-alias rb='reboot_sys'        # Will reboot the system
 alias ip="ifconfig | grep 'inet '"      # Show ip address
 
-# --------- MAC OS brew Pracical stuff ----------------
+# --------- OS agnostic commands ----------------
+alias uu='update_apps'       # uu --> will update all apps on debian, arch, alpine and mac
+alias ii='install_apps'      # 'ii vim' --> will install vim on debian, arch, alpine and mac
+alias rb='reboot_sys'        # Will reboot the system
+
+# --------- MAC OS stuff ------------------------
 alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias vk='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias vy='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias o='open .'           			# Open folder in finder
 
-# --------- NixOS Pracical stuff ----------------
+# --------- NixOS stuff -------------------------
 alias nc='sudo nix-collect-garbage --delete-older-than 10d sudo nixos-rebuild switch && sudo reboot'  # clean older packages rebuild and Restart
 alias ui='hyprland'
 alias sd='sudo shutdown -h now'
@@ -162,9 +160,9 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-#if [[ -f "~/private_aliases" ]]; then
-source ~/private_aliases
-  # Create and add your private aliases in this file
+#if [[ -f "~/private" ]]; then
+source ~/private
+  # Create and add your private shortcuts in this file
 #fi
 
 source ~/.config/bin/sysmanage

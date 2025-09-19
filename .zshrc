@@ -9,6 +9,7 @@
 # ----------- http://www.zestynotions.com ----------- #
 # =================================================== #
 
+# setopt CORRECT 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -76,7 +77,7 @@ chpwd
 
 export EDITOR='nvim'
 export BROWSER='brave'
-export TERMINAL='alacritty'
+export TERMINAL='wezterm'
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
@@ -105,7 +106,6 @@ alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim
 alias a='show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
-alias c='clear'	      # Clear the terminal
 alias du='duf'        # show mounts and disk usage
 alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
 alias fp='search_and_kill' # find_and_kill process

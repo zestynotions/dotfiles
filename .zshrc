@@ -136,14 +136,15 @@ alias ii='install_apps'      # 'ii vim' --> will install vim on debian, arch, al
 alias rb='reboot_sys'        # Will reboot the system
 
 # --------- MAC OS stuff ------------------------
-alias sv='brew services restart yabai'  # Restart the Yabai tiling window manager
-alias vk='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
-alias vy='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
+alias ry='brew services restart yabai'  # Restart the Yabai tiling window manager
+alias es='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
+alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias o='open .'           			# Open folder in finder
 
 # --------- NixOS stuff -------------------------
-alias nc='sudo nix-collect-garbage --delete-older-than 10d sudo nixos-rebuild switch && sudo reboot'  # clean older packages rebuild and Restart
+alias nr='sudo nixos-rebuild switch'  # rebuild and Restart
 alias ui='hyprland'
+alias en='sudo nvim /etc/nixos/configuration.nix'               # Edit nix conf file
 alias sd='sudo shutdown -h now'
 
 # =================================================== #
@@ -160,10 +161,10 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-#if [[ -f "~/private" ]]; then
+if [[ -f "~/private" ]]; then
 source ~/private
   # Create and add your private shortcuts in this file
-#fi
+fi
 
 source ~/.config/bin/sysmanage
 

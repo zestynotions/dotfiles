@@ -1,9 +1,12 @@
 local wezterm = require("wezterm")
 return {
 	--color_scheme = "termnial.sexy",
+	--color_scheme = "NvimDark",
+	--color_scheme = "NvimLight",
+	--color_scheme = "nordfox",
 	--color_scheme = "nord",
-	--color_scheme = "Dracula (Official)",
-	color_scheme = "Dracula+",
+	color_scheme = "FarSide (terminal.sexy)",
+	--color_scheme = "Dracula+",
 	max_fps = 120,
 	enable_wayland = true,
 	enable_tab_bar = false,

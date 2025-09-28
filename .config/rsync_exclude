@@ -1,0 +1,8 @@
+.DS_Store
+prv*
+Shortcuts
+cfgbackup.sh
+sandbox
+counter
+rsync_exclude
+

@@ -80,9 +80,8 @@ export BROWSER='brave'
 export TERMINAL='wezterm'
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
-export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin:~/.cargo/bin
+export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
-source "$HOME/.cargo/env" # added for Rust integration
 
 # =================================================== #
 # ------------- Aliases ----------------------------- #
@@ -152,8 +151,8 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # =================================================== #
 
 # Create and add your private shortcuts in this file
-if [ -f "~/private" ]; then
-source ~/private
+if [ -f "$HOME/private" ]; then
+source $HOME/private
 fi
 
 source ~/.config/bin/sysmanage

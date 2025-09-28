@@ -85,16 +85,6 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 source "$HOME/.cargo/env" # added for Rust integration
 
 # =================================================== #
-# ====== Needed for Sway Tiling Window Manager ====== #
-# ========= Only needed for if you use Linux ======== #
-# =================================================== #
-
-export XDG_RUNTIME_DIR='/tmp'
-export WLR_NO_HARDWARE_CURSORS='1'
-export LIBINPUT_NO_DEVICES='1'
-
-
-# =================================================== #
 # ------------- Aliases ----------------------------- #
 # =================================================== #
 
@@ -161,9 +151,9 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-if [[ -f "~/private" ]]; then
+# Create and add your private shortcuts in this file
+if [ -f "~/private" ]; then
 source ~/private
-  # Create and add your private shortcuts in this file
 fi
 
 source ~/.config/bin/sysmanage

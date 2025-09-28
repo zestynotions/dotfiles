@@ -151,8 +151,8 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # =================================================== #
 
 # Create and add your private shortcuts in this file
-if [ -f "$HOME/private" ]; then
-source $HOME/private
+if [ -f "$HOME/private.sh" ]; then
+source $HOME/private.sh
 fi
 
 source ~/.config/bin/sysmanage

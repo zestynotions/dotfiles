@@ -17,19 +17,48 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# Sound
+security.rtkit.enable = true; # Recommended for improved performance
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+  wireplumber.enable = true;
+  # Uncomment the following line if you want to use JACK applications
+  # jack.enable = true;
+};
+
+nix.gc = {
+automatic = true;
+dates = "weekly";
+options= "--delete-older-than 1w";
+};
+
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  environment.variables = {
-    ROC_ENABLE_VEGA = "1";
-  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
+
+networking.interfaces.enp3s0 = {
+  useDHCP = false;
+  ipv4.addresses = [
+    {
+      address = "10.0.0.100";
+      prefixLength = 24;
+    }
+  ];
+};
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
@@ -60,10 +89,19 @@
     isNormalUser = true;
     description = "zns";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "pipewire" ];
     packages = with pkgs; [];
   };
 
+
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+  ];
+
+
+programs.hyprland.enable = true;
 programs.zsh.enable = true;
 hardware.graphics.enable = true;
 
@@ -72,14 +110,13 @@ hardware.graphics.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  xdg.portal.wlr.enable = true;
+  # xdg.portal.wlr.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-brave  
-wget
+brave
 neovim
+wget
 zsh
 xwayland
 hyprpaper
@@ -91,6 +128,7 @@ fd
 eza
 zoxide
 starship
+btop
 skim
 wezterm
 foot
@@ -101,21 +139,17 @@ htop
 jetbrains-mono
 pfetch
 macchina
+vlc
+pavucontrol
+wireplumber
 yazi
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+ services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

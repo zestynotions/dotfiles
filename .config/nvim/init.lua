@@ -12,6 +12,7 @@ vim.o.clipboard = "unnamedplus"
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
+vim.keymap.set('n', '<leader>p', ':LivePreview start<CR>')
 
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
@@ -22,8 +23,11 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.pick" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
+	{ src = "https://github.com/brianhuster/live-preview.nvim" },
+	{ src = "https://github.com/numToStr/Comment.nvim" },
 })
+
+-- To toggle comment use Visual = "gc" or Normal = "gcc" 
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(ev)
@@ -37,7 +41,7 @@ vim.cmd("set completeopt+=noselect")
 
 require "mini.pick".setup()
 require "nvim-treesitter.configs".setup({
-	ensure_installed = { "svelte", "typescript", "javascript" },
+	ensure_installed = { "lua", "php", "bash", "css", "html", "typescript", "javascript" },
 	highlight = { enable = true }
 })
 require "oil".setup()

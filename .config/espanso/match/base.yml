@@ -17,10 +17,10 @@ matches:
     replace: ♪
   - trigger: ":cc"
     replace: °C
-  - trigger: "im "
-    replace: "I'm "
-  - trigger: "dont "
-    replace: "don't "
+  - trigger: " im "
+    replace: " I'm "
+  - trigger: " dont "
+    replace: " don't "
   - trigger: ":ttm"
     replace: ™
   - trigger: ":TT"

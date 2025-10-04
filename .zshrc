@@ -20,6 +20,43 @@ eval "$(zoxide init zsh)"
  }
 
 # =================================================== #
+# ------ Obsidian Helper functions ------------------ #
+# =================================================== #
+
+# Declare paths for Obsidian https://obsidian.md/
+obsidianvault="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns" # Declare where your Obsidian vault is, in my case it is synced through Icloud.
+dailynotesfolder="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns/Dailynotes" # Replace the this path to your obsidian vaults daily notes, mine is in icloud.
+
+# =================================================== #
+
+alias fn="find_notes" # fuzzy find and edit obsidian notes in neovim
+function find_notes() {
+ cd $obsidianvault
+  sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
+}
+
+# =================================================== #
+
+alias dn="dailynote" # create new daily note in neovim, tag and save in obidian
+function dailynote() { 
+noteFilename="$dailynotesfolder/$(date +%Y-%m-%d).md"
+
+cd $noteFolder
+
+if [ ! -f $noteFilename ]; then
+  echo "---\ntags: Dailynote\n---\n#### Quick Notes for $(date +%Y-%m-%d)" > $noteFilename
+fi
+# Opens the new note in Neovim and put you in insert mode
+nvim -c "norm Go" \
+  -c "norm Go###### $(date +%H:%M)" \
+  -c "norm G2o" \
+  -c "norm zz" \
+  -c "startinsert" $noteFilename
+
+}
+
+
+# =================================================== #
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
@@ -84,8 +121,6 @@ alias a='show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
-alias dn='daynotetaker'       # script for taking dailynotes and add to obsidian vault
-alias sn='solnotetaker'       # script for taking solitarynotes and add to obsidian vault
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
 alias q='exit' 				    # Exits the terminal (Quit)
 alias gc='git_commit'     # git commit all with message and push
@@ -140,6 +175,6 @@ if [ -f "$HOME/private.sh" ]; then
 source $HOME/private.sh
 fi
 
-source ~/.config/bin/sysmanage
+source $HOME/.config/bin/sysmanage
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

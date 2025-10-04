@@ -1,3 +1,4 @@
+# This file is referenced when searching with fuzzy finding for files to edit, excluding various directories speeds up the response time.
 .git
 .cfg
 .vim

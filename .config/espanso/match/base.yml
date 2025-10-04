@@ -17,6 +17,10 @@ matches:
     replace: ♪
   - trigger: ":cc"
     replace: °C
+  - trigger: "im "
+    replace: "I'm "
+  - trigger: "dont "
+    replace: "don't "
   - trigger: ":ttm"
     replace: ™
   - trigger: ":TT"
@@ -45,8 +49,6 @@ matches:
     replace: "<div>$|$</div>"
   - trigger: ":cat"
     image_path: /path/to/image.png
-  - trigger: ":aa"
-    replace: "<a href='{{clipboard}}' />$|$</a>"
     vars:
       - name: clipboard
         type: clipboard

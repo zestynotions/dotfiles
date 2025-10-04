@@ -9,7 +9,6 @@
 # ----------- http://www.zestynotions.com ----------- #
 # =================================================== #
 
-# setopt CORRECT 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -20,29 +19,18 @@ eval "$(zoxide init zsh)"
      eza -la --git --git-ignore --icons=always --color=always --group-directories-first
  }
 
-# Start Yazi with a shell wrapper that provides the ability to change the current working directory when exiting Yazi.
- function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 # =================================================== #
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
- # search dotfile and edit.
-alias ed='editdotfile'
+alias ed='editdotfile' # search dotfile and edit.
 function editdotfile() {
   cd $HOME/.config
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
  }
 
 
-# search and cd to folder
-alias j='jump2zoxide'
+alias j='jump2zoxide' # search zoxide folders and jump to that folder
 function jump2zoxide() {
    PATH_RESULT=$(zoxide query -l|sk --reverse --margin=3% --prompt='Jump to directory: ' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
    cd "$PATH_RESULT"
@@ -53,7 +41,7 @@ function jump2zoxide() {
 # ============ Find_and_kill process ================ #
 # =================================================== #
 
-alias kp='search_and_kill'
+alias kp='search_and_kill' # Search active processes and kill it
 function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 }
@@ -62,7 +50,7 @@ procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 # ============ Make a backup of a file ============== #
 # =================================================== #
 
-alias bk='copy_rename_backup'
+alias bk='copy_rename_backup' # Create a backup of a file
 function copy_rename_backup() {
   if [ $# -eq 1 ]
 then
@@ -88,7 +76,6 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 # =================================================== #
 
 alias e='yazi'               # Rust based file explorer
-alias vx='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias v='nvim' 				# Another alias for Neovim
@@ -97,11 +84,9 @@ alias a='show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
-alias fp='search_and_kill' # find_and_kill process
 alias dn='daynotetaker'       # script for taking dailynotes and add to obsidian vault
 alias sn='solnotetaker'       # script for taking solitarynotes and add to obsidian vault
 alias p='clear; ping -c 3 google.com' # ping google 3 timer and exit
-alias fn='findnotes'    # Jump to Icloud Note folder and open nvim
 alias q='exit' 				    # Exits the terminal (Quit)
 alias gc='git_commit'     # git commit all with message and push
 alias Q='exit' 				    # Exits the terminal (Quit)
@@ -131,10 +116,10 @@ alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
 alias o='open .'           			# Open folder in finder
 
 # --------- NixOS stuff -------------------------
-alias nr='sudo nixos-rebuild switch'  # rebuild and Restart
-alias ui='hyprland'
-alias en='sudo nvim /etc/nixos/configuration.nix'               # Edit nix conf file
-alias sd='sudo shutdown -h now'
+alias rn='sudo nixos-rebuild switch'  # rebuild and Restart
+alias ui='hyprland' # Start the Hyprland window manager
+alias en='sudo nvim /etc/nixos/configuration.nix' # Edit nix conf file
+alias sd='sudo shutdown -h now' # shutdown without waiting
 
 # =================================================== #
 # ----------------- Git .config magic --------------- #

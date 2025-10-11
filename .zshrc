@@ -148,7 +148,7 @@ alias rb='reboot_sys'        # Will reboot the system
 alias ry='brew services restart yabai'  # Restart the Yabai tiling window manager
 alias es='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
 alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
-alias o='open .'           			# Open folder in finder
+alias o='open .'           			# Open folder in macos finder
 
 # --------- NixOS stuff -------------------------
 alias rn='sudo nixos-rebuild switch'  # rebuild and Restart
@@ -170,7 +170,7 @@ alias gc='git_commit'                            # Simplified commit all and pus
 # ----------------- Source Other -------------------- #
 # =================================================== #
 
-# Create and add your private shortcuts in this file
+# Create and add your private shortcuts in this file that are not sync to github
 if [ -f "$HOME/private.sh" ]; then
 source $HOME/private.sh
 fi

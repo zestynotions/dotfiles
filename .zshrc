@@ -20,41 +20,17 @@ eval "$(zoxide init zsh)"
  }
 
 # =================================================== #
-# ------ Obsidian Helper functions ------------------ #
+# ----- Obsidian functions https://obsidian.md/ ----- #
 # =================================================== #
 
-# Declare paths for Obsidian https://obsidian.md/
-obsidianvault="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns" # Declare where your Obsidian vault is, in my case it is synced through Icloud.
-dailynotesfolder="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns/Dailynotes" # Replace the this path to your obsidian vaults daily notes, mine is in icloud.
+# Declare where your Obsidian vault is, in my case it is synced through Icloud.
+obsidianvault="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns" 
 
-# =================================================== #
-
-alias fn="find_notes" # fuzzy find and edit obsidian notes in neovim
+alias en="find_notes" # fuzzy find and edit obsidian notes in neovim
 function find_notes() {
  cd $obsidianvault
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
 }
-
-# =================================================== #
-
-alias dn="dailynote" # create new daily note in neovim, tag and save in obidian
-function dailynote() { 
-noteFilename="$dailynotesfolder/$(date +%Y-%m-%d).md"
-
-cd $noteFolder
-
-if [ ! -f $noteFilename ]; then
-  echo "---\ntags: Dailynote\n---\n#### Quick Notes for $(date +%Y-%m-%d)" > $noteFilename
-fi
-# Opens the new note in Neovim and put you in insert mode
-nvim -c "norm Go" \
-  -c "norm Go###### $(date +%H:%M)" \
-  -c "norm G2o" \
-  -c "norm zz" \
-  -c "startinsert" $noteFilename
-
-}
-
 
 # =================================================== #
 # ------ Keybindings for FZF /skim functions -------- #
@@ -66,13 +42,11 @@ function editdotfile() {
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
  }
 
-
 alias j='jump2zoxide' # search zoxide folders and jump to that folder
 function jump2zoxide() {
    PATH_RESULT=$(zoxide query -l|sk --reverse --margin=3% --prompt='Jump to directory: ' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
    cd "$PATH_RESULT"
  }
-
 
 # =================================================== #
 # ============ Find_and_kill process ================ #
@@ -81,19 +55,6 @@ function jump2zoxide() {
 alias kp='search_and_kill' # Search active processes and kill it
 function search_and_kill() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
-}
-
-# =================================================== #
-# ============ Make a backup of a file ============== #
-# =================================================== #
-
-alias bk='copy_rename_backup' # Create a backup of a file
-function copy_rename_backup() {
-  if [ $# -eq 1 ]
-then
- cp -pvi "$1" "${1}.bak"
-fi
-chpwd
 }
 
 # =================================================== #
@@ -137,7 +98,7 @@ alias bat='bat -p'        # bat -> bat -plain files
 alias b='bat -p $1'       # bat show file as plain file
 alias ez='nvim ~/.zshrc'  # Edit zsh config (this file) in Neovim
 alias sz='source ~/.zshrc' # source the zsh config file
-alias ip="ifconfig | grep 'inet '"      # Show ip address
+alias ip="ifconfig | grep 'inet '"  # Show ip address
 
 # --------- OS agnostic commands ----------------
 alias uu='update_apps'       # uu --> will update all apps on debian, arch, alpine and mac
@@ -153,17 +114,17 @@ alias o='open .'           			# Open folder in macos finder
 # --------- NixOS stuff -------------------------
 alias rn='sudo nixos-rebuild switch'  # rebuild and Restart
 alias ui='hyprland' # Start the Hyprland window manager
-alias en='sudo nvim /etc/nixos/configuration.nix' # Edit nix conf file
+alias ec='sudo nvim /etc/nixos/configuration.nix' # Edit nix conf file
 alias sd='sudo shutdown -h now' # shutdown without waiting
 
 # =================================================== #
 # ----------------- Git .config magic --------------- #
 # =================================================== #
 
-alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 		# prefix for git to handle my dotfiles
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' # prefix for git to handle my dotfiles
 alias cfgl='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline' # show git log in one line for the dotfiles
-alias cfgc='cfg_commit'                            # Simplified commit all and push for dotfiles
-alias gc='git_commit'                            # Simplified commit all and push for dotfiles
+alias cfgc='cfg_commit' # Simplified commit all and push for dotfiles
+alias gc='git_commit'   # Simplified commit all and push for github
 
 
 # =================================================== #

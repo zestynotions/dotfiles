@@ -25,6 +25,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/numToStr/Comment.nvim" },
+	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
 -- To toggle comment use Visual = "gc" or Normal = "gcc" 

@@ -51,7 +51,11 @@ shift + alt - r : yabai -m space --rotate 90
 # full screen
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
 
-
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# shift + alt - n : yabai -m space --create && \
+#                    index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+#                    yabai -m window --space "${index}" && \
+#                    yabai -m space --focus "${index}"
 
 # send window to desktop and follow focus
 shift + alt - 1 : yabai -m window --space 1
@@ -62,18 +66,6 @@ shift + alt - 5 : yabai -m window --space 5
 shift + alt - 6 : yabai -m window --space 6
 
 # NOTE: Moving between deskspaces is handled by ctrl + 1 in system settings that way you dont need to disable security.
-
-:: default : yabai -m config active_window_border_color 0xff775759
-
-#.blacklist [
-#    "kitty"
-#    "terminal"
-#    "WezTerm"
-# ]
-
-# cmd - n [
-#    "kitty" : echo "hello"
-#]
 
 #------------------- Reminder ----------------------------------------
 #(rows) : (columns) : (x move) : (y move) : (row span) : (column span)

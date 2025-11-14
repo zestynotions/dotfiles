@@ -6,7 +6,7 @@
 #   \/____/\/_/\/_/\/___/
 #
 # =================================================== #
-# ----------- http://www.zestynotions.com ----------- #
+#------------ http://www.zestynotions.com ------------#
 # =================================================== #
 
 eval "$(starship init zsh)"
@@ -26,8 +26,8 @@ eval "$(zoxide init zsh)"
 # Declare where your Obsidian vault is, in my case it is synced through Icloud.
 obsidianvault="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/zns" 
 
-alias en="find_notes" # fuzzy find and edit obsidian notes in neovim
-function find_notes() {
+alias en="edit_notes" # fuzzy find and edit obsidian notes in neovim
+function edit_notes() {
  cd $obsidianvault
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
 }
@@ -36,8 +36,8 @@ function find_notes() {
 # ------ Keybindings for FZF /skim functions -------- #
 # =================================================== #
 
-alias ed='editdotfile' # search dotfile and edit.
-function editdotfile() {
+alias ed='edit_dotfile' # search dotfile and edit.
+function edit_dotfile() {
   cd $HOME/.config
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
  }
@@ -52,13 +52,13 @@ function jump2zoxide() {
 # ============ Find_and_kill process ================ #
 # =================================================== #
 
-alias kp='search_and_kill' # Search active processes and kill it
-function search_and_kill() {
+alias kp='kill_process' # Search active processes and kill it
+function kill_process() {
 procs -t |sk --reverse |awk '{print $2}'|xargs kill -9
 }
 
 # =================================================== #
-# ------------- Defaults ---------------------------- #
+#------------- Defaults ----------------------------- #
 # =================================================== #
 
 export EDITOR='nvim'
@@ -70,15 +70,18 @@ export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 
 # =================================================== #
-# ------------- Aliases ----------------------------- #
+# ------------- Normal Aliases ---------------------- #
 # =================================================== #
 
 alias e='yazi'               # Rust based file explorer
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
+alias av='grep "keymap" $HOME/.config/nvim/init.lua|bat'	# Show keymaps for Neovim
+alias at='grep "bind" $HOME/.config/tmux/tmux.conf|bat'		# Show keymaps for tmux 
+alias aa='grep "alt-" $HOME/.config/aerospace/aerospace.toml|bat'	# Show keymaps for aerospace 
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim
-alias a='show_shortcuts' # List all aliases
+alias a='clear; show_shortcuts' # List all aliases
 alias help='show_shortcuts' # List all aliases
 alias du='duf'        # show mounts and disk usage
 alias w="clear; curl v2.wttr.in/tokyo" #show Tokyo weater forecast for the nest 3 days
@@ -97,7 +100,7 @@ alias ls='clear; eza -la --icons --git --git-ignore --color=always --group-direc
 alias bat='bat -p'        # bat -> bat -plain files
 alias b='bat -p $1'       # bat show file as plain file
 alias ez='nvim ~/.zshrc'  # Edit zsh config (this file) in Neovim
-alias sz='source ~/.zshrc' # source the zsh config file
+alias sz='clear; source ~/.zshrc' # source the zsh config file
 alias ip="ifconfig | grep 'inet '"  # Show ip address
 
 # --------- OS agnostic commands ----------------
@@ -106,10 +109,7 @@ alias ii='install_apps'      # 'ii vim' --> will install vim on debian, arch, al
 alias rb='reboot_sys'        # Will reboot the system
 
 # --------- MAC OS stuff ------------------------
-alias ry='brew services restart yabai'  # Restart the Yabai tiling window manager
-alias es='nvim ~/.config/skhd/skhdrc'   # Edit the keyboard shortcut deamon
-alias ey='nvim ~/.config/yabai/yabairc' # Edit the Yabai WM config
-alias o='open .'           			# Open folder in macos finder
+alias o='open .'    	# Open folder in macos finder
 
 # --------- NixOS stuff -------------------------
 alias rn='sudo nixos-rebuild switch'  # rebuild and Restart
@@ -128,7 +128,7 @@ alias gc='git_commit'   # Simplified commit all and push for github
 
 
 # =================================================== #
-# ----------------- Source Other -------------------- #
+# --------------- Source Private Aliases ------------ #
 # =================================================== #
 
 # Create and add your private shortcuts in this file that are not sync to github

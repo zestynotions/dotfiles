@@ -25,6 +25,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/numToStr/Comment.nvim" },
+	{ src = "https://github.com/Saghen/blink.cmp" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
@@ -42,7 +43,7 @@ vim.cmd("set completeopt+=noselect")
 
 require "mini.pick".setup()
 require "nvim-treesitter.configs".setup({
-	ensure_installed = { "lua", "php", "bash", "css", "html", "typescript", "javascript" },
+	ensure_installed = { "lua", "markdown", "php", "bash", "css", "html", "typescript", "javascript" },
 	highlight = { enable = true }
 })
 require "oil".setup()
@@ -57,3 +58,37 @@ require "vague".setup({ transparent = true })
 vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
 
+
+require "blink.cmp".setup({
+  'blink.cmp',
+  version = '1.*',
+  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+  -- build = 'cargo build --release',
+  -- If you use nix, you can build from source using latest nightly rust with:
+  -- build = 'nix run .#build-plugin',
+
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+    -- 'super-tab' for mappings similar to vscode (tab to accept)
+    -- 'enter' for enter to accept
+    -- 'none' for no mappings
+    --
+    -- All presets have the following mappings:
+    -- C-space: Open menu or open docs if already open
+    -- C-n/C-p or Up/Down: Select next/previous item
+    -- C-e: Hide menu
+    -- C-k: Toggle signature help (if signature.enabled = true)
+    --
+    -- See :h blink-cmp-config-keymap for defining your own keymap
+    keymap = { preset = 'default' },
+
+    appearance = {
+      nerd_font_variant = 'mono'
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+  },
+})

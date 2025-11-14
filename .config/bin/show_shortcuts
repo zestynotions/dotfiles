@@ -1,10 +1,11 @@
 #!/bin/sh
-grep 'alias' $HOME/.zshrc |sort > $HOME/.config/bin/Shortcuts.sh
+# grep -E 'alias|# -' $HOME/.zshrc |sort > $HOME/.config/bin/shortcuts.sh
+grep -E 'alias|# -' $HOME/.zshrc |cat > $HOME/.config/bin/shortcuts.sh
 
 if [ -f "$HOME/private.sh" ]; then
-grep 'alias' $HOME/private.sh|sort >> $HOME/.config/bin/Shortcuts.sh
+grep 'alias' $HOME/private.sh|sort >> $HOME/.config/bin/shortcuts.sh
 fi
 
-bat -p $HOME/.config/bin/Shortcuts.sh
+bat -p $HOME/.config/bin/shortcuts.sh
 
 exit 1

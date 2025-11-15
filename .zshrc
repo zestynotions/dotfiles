@@ -42,8 +42,8 @@ function edit_dotfile() {
   sk --reverse --margin=3% --prompt='Edit in Nvim: ' --preview='bat --style=numbers --color=always {}' | xargs nvim
  }
 
-alias j='jump2zoxide' # search zoxide folders and jump to that folder
-function jump2zoxide() {
+alias j='jump2folder' # search fuzzy find zoxide folders and jump to that folder
+function jump2folder() {
    PATH_RESULT=$(zoxide query -l|sk --reverse --margin=3% --prompt='Jump to directory: ' --preview='eza -a --tree --color=always --icons=always --level=1 {}')
    cd "$PATH_RESULT"
  }
@@ -75,9 +75,9 @@ export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
 
 alias e='yazi'               # Rust based file explorer
 alias resetzns='sh <(wget -qO- https://zns.one/rc)' # CAUTION!! Grabs github dotfiles and overwrite existing CAUTION!!
-alias av='grep "keymap" $HOME/.config/nvim/init.lua|bat'	# Show keymaps for Neovim
-alias at='grep "bind" $HOME/.config/tmux/tmux.conf|bat'		# Show keymaps for tmux 
-alias aa='grep "alt-" $HOME/.config/aerospace/aerospace.toml|bat'	# Show keymaps for aerospace 
+alias av='rg "keymap" $HOME/.config/nvim/init.lua|bat'	# Show keymaps for Neovim
+alias at='rg "bind" $HOME/.config/tmux/tmux.conf|bat'		# Show keymaps for tmux 
+alias aa='rg "alt-" $HOME/.config/aerospace/aerospace.toml|bat'	# Show keymaps for aerospace 
 alias ZZ=''           # Error handling for when exititing nvim times 2 by mistake.
 alias v='nvim' 				# Another alias for Neovim
 alias vim='nvim' 			# Another alias for Neovim

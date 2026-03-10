@@ -138,4 +138,5 @@ fi
 
 source $HOME/.config/bin/sysmanage
 
+
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

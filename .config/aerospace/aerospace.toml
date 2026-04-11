@@ -6,10 +6,10 @@ after-startup-command = [
 'exec-and-forget borders'
 ]
 
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+## Notify Sketchybar about workspace change
+#exec-on-workspace-change = ['/bin/bash', '-c',
+#    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+#]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -61,7 +61,7 @@ automatically-unhide-macos-hidden-apps = true
     inner.vertical =   10
     outer.left =       12
     outer.bottom =     4
-    outer.top =        60
+    outer.top =        40
     outer.right =      13
 
 # 'main' binding mode declaration

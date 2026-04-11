@@ -11,6 +11,7 @@
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
 
 # Show current working directory breadcrumb and list files
  function chpwd() {

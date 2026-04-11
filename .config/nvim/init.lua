@@ -10,6 +10,7 @@ vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
+vim.keymap.set('n', '<leader>u', ':lua vim.pack.update()<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>p', ':LivePreview start<CR>')

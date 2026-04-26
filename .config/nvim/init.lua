@@ -9,10 +9,10 @@ vim.g.mapleader = " "
 vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 
-vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
+-- vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>u', ':lua vim.pack.update()<CR>')
-vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>q', ':quit<CR>')
+-- vim.keymap.set('n', '<leader>w', ':write<CR>')
+-- vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>p', ':LivePreview start<CR>')
 
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
@@ -30,7 +30,7 @@ vim.pack.add({
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
--- To toggle comment use Visual = "gc" or Normal = "gcc" 
+-- keymap To toggle comment use Visual = "gc" or Normal = "gcc" 
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(ev)

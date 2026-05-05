@@ -133,6 +133,7 @@ skim
 wezterm
 foot
 wl-clipboard
+espanso
 tofi
 duf
 htop
@@ -143,6 +144,7 @@ vlc
 pavucontrol
 wireplumber
 yazi
+obsidian
   ];
 
 

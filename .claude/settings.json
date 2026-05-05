@@ -1,16 +1,4 @@
 {
-  "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    }
-  },
-  "theme": "dark-daltonized",
-  "enabledPlugins": {
-    "caveman@caveman": true
-  },
   "hooks": {
     "PreToolUse": [
       {
@@ -23,12 +11,30 @@
         ]
       }
     ]
-  }
-}
-{
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "padding": 2
-  }
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "andrej-karpathy-skills@karpathy-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
+  },
+  "theme": "dark-daltonized",
+  "model": "Opus"
 }

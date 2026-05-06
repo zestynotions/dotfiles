@@ -118,6 +118,10 @@ alias ui='hyprland' # Start the Hyprland window manager
 alias ec='sudo nvim /etc/nixos/configuration.nix' # Edit nix conf file
 alias sd='sudo shutdown -h now' # shutdown without waiting
 
+# --------- Alpine OS stuff -------------------------
+alias svc='zestyos_services' # Service Script to manage services in OpenRC
+
+
 # =================================================== #
 # ----------------- Git .config magic --------------- #
 # =================================================== #

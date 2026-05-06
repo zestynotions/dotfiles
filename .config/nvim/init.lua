@@ -9,12 +9,18 @@ vim.g.mapleader = " "
 vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 
--- vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
+-- new stuff
+vim.o.pumborder = "rounded"
+vim.o.pumheight = 5
+vim.opt.complete:append('o')
+vim.opt.completeopt = { 'menuone', 'noselect' }
+
+
+
 vim.keymap.set('n', '<leader>u', ':lua vim.pack.update()<CR>')
--- vim.keymap.set('n', '<leader>w', ':write<CR>')
--- vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>p', ':LivePreview start<CR>')
 
+-- move line up and down
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
 
@@ -47,8 +53,10 @@ require "nvim-treesitter.configs".setup({
 	ensure_installed = { "lua", "markdown", "php", "bash", "css", "html", "typescript", "javascript" },
 	highlight = { enable = true }
 })
-require "oil".setup()
 
+
+-- file picker
+require "oil".setup()
 vim.keymap.set('n', '<leader>f', ":Pick files<CR>")
 vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")

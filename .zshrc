@@ -119,8 +119,8 @@ alias ec='sudo nvim /etc/nixos/configuration.nix' # Edit nix conf file
 alias sd='sudo shutdown -h now' # shutdown without waiting
 
 # --------- Alpine OS stuff -------------------------
-alias svc='zestyos_services' # Service Script to manage services in OpenRC
-
+alias svc='zestyos_services' 	# Service Script to manage services in OpenRC
+alias wm='doas xdg_mango' 		# Startup script to create XDG directory and launch mango windows manager 
 
 # =================================================== #
 # ----------------- Git .config magic --------------- #

@@ -1,0 +1,6 @@
+if [ -z "XDG_RUNTIME_DIR" ]; then
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+mkdir -p "$XDG_RUNTIME_DIR"
+doas chmod 777 -R "$XDG_RUNTIME_DIR"
+fi
+mango

@@ -14,7 +14,7 @@ encode_and_delete() {
 
 	echo "🎬 Starting encoding: $input_file"
 
-	HandBrakeCLI -Z "Social 50 MB 5 Minutes 720p30" -i "$input_file" -o "$output_file"
+	HandBrakeCLI -Z "Very Fast 720p30" -i "$input_file" -o "$output_file"
 
 	echo ""  # newline after progress bar
 

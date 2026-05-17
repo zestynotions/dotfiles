@@ -69,7 +69,7 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
-
+export XDG_RUNTIME_DIR='~/.config/mango/tmp'
 # =================================================== #
 # ------------- Normal Aliases ---------------------- #
 # =================================================== #
@@ -120,7 +120,7 @@ alias sd='sudo shutdown -h now' # shutdown without waiting
 
 # --------- Alpine OS stuff -------------------------
 alias svc='zestyos_services' 	# Service Script to manage services in OpenRC
-alias wm='doas xdg_mango' 		# Startup script to create XDG directory and launch mango windows manager 
+alias wm='mango' 				# just an alias to start mangowc 
 
 # =================================================== #
 # ----------------- Git .config magic --------------- #

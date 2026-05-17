@@ -69,7 +69,7 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export PATH=$PATH:/usr/local/bin:~/.config/bin:~/.local/bin
 export MANPAGER="sh -c 'col -bx|bat -l man -p'" # Use bat to show man pages
-export XDG_RUNTIME_DIR='~/.config/mango/tmp'
+export XDG_RUNTIME_DIR='~/.config/xdgruntime'
 # =================================================== #
 # ------------- Normal Aliases ---------------------- #
 # =================================================== #

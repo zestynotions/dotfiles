@@ -10,7 +10,7 @@ return {
 	max_fps = 120,
 	enable_wayland = true,
 	enable_tab_bar = false,
-	font_size = 18.0,
+	font_size = 20.0,
 	font = wezterm.font("JetBrains Mono"),
 	macos_window_background_blur = 20,
 	--window_background_opacity = 0.92,
@@ -21,7 +21,8 @@ return {
 	window_decorations = "RESIZE",
 
 
-	-- Leader is the same as my old tmux prefix
+-- Leader is the same as my old tmux prefix
+	-- 
 	-- leader = { key = "b", mods = "CMD", timeout_milliseconds = 1000 },
 	-- keys = {
 	--	{

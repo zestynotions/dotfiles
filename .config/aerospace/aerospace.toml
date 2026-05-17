@@ -3,7 +3,7 @@
 after-startup-command = [
 # JankyBorders has a built-in detection of already running process,
 # so it won't be run twice on AeroSpace restart
-'exec-and-forget borders'
+ 'exec-and-forget borders'
 ]
 
 ## Notify Sketchybar about workspace change
@@ -59,10 +59,10 @@ automatically-unhide-macos-hidden-apps = true
 [gaps]
     inner.horizontal = 10
     inner.vertical =   10
-    outer.left =       12
+    outer.left =       8
     outer.bottom =     4
-    outer.top =        40
-    outer.right =      13
+    outer.top =        0
+    outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -98,8 +98,9 @@ automatically-unhide-macos-hidden-apps = true
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-slash = 'layout tiles horizontal'
-    alt-comma = 'layout accordion horizontal'
+    # alt-slash = 'layout tiling accordion'
+    alt-comma = 'layout accordion tiling'
+    alt-backslash = 'layout tiling vertical horizontal'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 

@@ -12,7 +12,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top y_offset=18 height=45 blur_radius=40 color=0x40000000
+sketchybar --bar position=top y_offset=0 height=45 blur_radius=30 color=0x40000000
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -22,9 +22,9 @@ sketchybar --bar position=top y_offset=18 height=45 blur_radius=40 color=0x40000
 default=(
   padding_left=5
   padding_right=5
-  padding_top=20
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+#  padding_top=10
+  icon.font="Hack Nerd Font:Bold:28.0"
+  label.font="Hack Nerd Font:Bold:28.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -97,7 +97,7 @@ for sid in $(aerospace list-workspaces --all); do
         --set space.$sid \
         background.color=0x44ffffff \
         background.corner_radius=5 \
-        background.height=20 \
+        background.height=30 \
         background.drawing=off \
         label="$sid" \
         click_script="aerospace workspace $sid" \

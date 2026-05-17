@@ -9,11 +9,6 @@ vim.g.mapleader = " "
 vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 
--- new stuff
-vim.o.pumborder = "rounded"
-vim.o.pumheight = 5
-vim.opt.complete:append('o')
-vim.opt.completeopt = { 'menuone', 'noselect' }
 
 
 
@@ -32,12 +27,16 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/brianhuster/live-preview.nvim" },
 	{ src = "https://github.com/numToStr/Comment.nvim" },
+	{ src = "https://github.com/Saghen/blink.lib" },
 	{ src = "https://github.com/Saghen/blink.cmp" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
 -- keymap To toggle comment use Visual = "gc" or Normal = "gcc" 
 
+
+
+-- LSP 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -46,7 +45,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 	end,
 })
-vim.cmd("set completeopt+=noselect")
+vim.lsp.enable({ "lua_ls", "bash", "php", "css", "html" })
+vim.o.pumborder = "rounded"
+vim.o.pumheight = 5
+vim.opt.complete:append('o')
+vim.opt.completeopt = { 'menuone', 'noselect' }
+-- vim.cmd("set completeopt+=noselect")
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+
 
 require "mini.pick".setup()
 require "nvim-treesitter.configs".setup({
@@ -60,14 +66,14 @@ require "oil".setup()
 vim.keymap.set('n', '<leader>f', ":Pick files<CR>")
 vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-vim.lsp.enable({ "lua_ls", "biome", "tinymist", "emmetls" })
 
+
+-- Theme and color
 require "vague".setup({ transparent = true })
 vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
 
-
+-- Autocompletion
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
   appearance = {

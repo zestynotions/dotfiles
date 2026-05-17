@@ -148,6 +148,7 @@ alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
 alt-w = 'exec-and-forget open -a /Applications/WezTerm.app'
 alt-e = 'exec-and-forget open -a /System/Library/CoreServices/Finder.app'
 alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
+alt-c = 'exec-and-forget open -a /Applications/Claude.app'
 #alt-n = 'exec-and-forget open -a /Applications/Notes.app'
 alt-n = 'exec-and-forget open -n -a "Notes" '
 #alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']

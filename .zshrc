@@ -137,11 +137,13 @@ alias gc='git_commit'   # Simplified commit all and push for github
 # =================================================== #
 
 # Create and add your private shortcuts in this file that are not sync to github
-if [ -f "$HOME/private.sh" ]; then
-source $HOME/private.sh
-fi
+# if [ -f '$HOME/Library/Mobile Documents/com~apple~CloudDocs/app_data_sync/private.sh' ]; then
+# source "$HOME/icloud/app_data_sync/private.sh"
+# fi
 
-source $HOME/.config/bin/sysmanage
+source "$HOME/Library/Mobile Documents/com~apple~CloudDocs/app_data_sync/private.sh"
+
+source "$HOME/.config/bin/sysmanage"
 
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color

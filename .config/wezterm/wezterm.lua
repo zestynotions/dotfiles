@@ -7,7 +7,7 @@ return {
 	--color_scheme = "nord",
 	color_scheme = "FarSide (terminal.sexy)",
 	--color_scheme = "Dracula+",
-	max_fps = 120,
+	max_fps = 60,
 	enable_wayland = true,
 	enable_tab_bar = false,
 	font_size = 20.0,

@@ -147,3 +147,12 @@ source "$HOME/.config/bin/sysmanage"
 
 
 pfetch # can also use "macchina"" to show terminal initial info with splash of color
+
+# Added by the cua installer
+export PATH="/Users/zns/.local/bin:$PATH"
+# oMLX: CLI shim path begin
+case ":$PATH:" in
+  *":$HOME/.omlx/bin:"*) ;;
+  *) export PATH="$HOME/.omlx/bin:$PATH" ;;
+esac
+# oMLX: CLI shim path end
